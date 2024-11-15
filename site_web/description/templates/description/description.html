@@ -1,13 +1,8 @@
 {% load static %}
 <!DOCTYPE HTML>
-<!--
-	Lens by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
-		<title>{{id}}</title>
+		<title>{{name}}</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="{% static 'description/assets/css/main.css' %}" />
@@ -20,12 +15,12 @@
 
 				<!-- Header -->
 					<header id="header">
-						<h1>Lens</h1>
-						<p>Just another fine responsive site template by <a href="http://html5up.net">HTML5 UP</a></p>
+						<h1>{{name}}</h1>
+						<p>{{description}}</p>
 						<ul class="icons">
-							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+							<li><a href="/accueil" class="icon solid fa-home"><span class="label">Home</span></a></li>
+							<li><a href="#" class="icon solid fa-heart"><span class="label">Heart</span></a></li>
+							<li><a href="#" class="icon solid fa-pencil-alt"><span class="label">Edit</span></a></li>
 							<li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
 						</ul>
 					</header>
@@ -94,10 +89,16 @@
 						</article>
 					</section>
 
+					<section id="text-section">
+						<div class="inner">
+							<p>mots clés : {{keywords}} <br> id : {{id}} </p>
+						</div>
+					</section>
+
 				<!-- Footer -->
 					<footer id="footer">
 						<ul class="copyright">
-							<li>&copy; Untitled.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a>.</li>
+							<li>&copy; TATIPH.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a>.</li>
 						</ul>
 					</footer>
 

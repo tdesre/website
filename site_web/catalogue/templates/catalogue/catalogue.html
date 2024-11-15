@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Catalogue</title>
+</head>
+<body>
+    <h1>Catalogue des espèces</h1>
+    <ul>
+        {% for species in species_list %}
+            <li>
+                <a href="/description/{{ species.id }}/">{{ species.name }}</a>
+                <p>Feuille : {{ species.name_leaf }}</p>
+                <p>Fruit : {{ species.name_fruit }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

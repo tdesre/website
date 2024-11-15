@@ -1,3 +1,8 @@
 from django.shortcuts import render
 
-# Create your views here.
+def catalogue(request):
+    return render(request, 'catalogue/index.html')
+
+def list_items(request, category):
+    context = {'category': category}
+    return render(request, 'catalogue/list.html', context)

@@ -17,8 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings
+from django.shortcuts import redirect
 
 urlpatterns = [
+    path('', lambda request: redirect('accueil/')),  # Redirige vers l'accueil
     path("admin/", admin.site.urls),
     path('accueil/', include('accueil.urls')),
     path('catalogue/', include('catalogue.urls')),

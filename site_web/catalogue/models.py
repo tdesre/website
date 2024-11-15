@@ -1,7 +1,5 @@
 from django.db import models
 
-from django.db import models
-
 class Species(models.Model):
     name = models.CharField(max_length=200, unique=True)
     name_leaf = models.CharField(max_length=200, unique=True, blank=True)

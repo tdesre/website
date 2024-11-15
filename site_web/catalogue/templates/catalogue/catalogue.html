@@ -1,18 +1,26 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalogue</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'catalogue/catalogue.css' %}">
 </head>
 <body>
-    <h1>Catalogue des espèces</h1>
+    <h1>Catalogue de {{ type }}</h1>
     <ul>
         {% for species in species_list %}
-            <li>
-                <a href="/description/{{ species.id }}/">{{ species.name }}</a>
-                <p>Feuille : {{ species.name_leaf }}</p>
-                <p>Fruit : {{ species.name_fruit }}</p>
-            </li>
+        <li>
+            {% if type == 'Feuilles' %}
+                {{ species.name_leaf }}
+            {% else %}
+                {{ species.name_fruit }}
+            {% endif %}
+        </li>
+        
         {% endfor %}
     </ul>
+    <a href="{% url 'accueil' %}">Retour à l'accueil</a>
 </body>
 </html>

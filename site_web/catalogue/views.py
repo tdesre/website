@@ -1,13 +1,12 @@
 from django.shortcuts import render
 from .models import Species
 
-def catalogue(request):
-    # Récupération de toutes les espèces
-    species_list = Species.objects.all()
-    context = {'species_list': species_list}
+def catalogue_feuilles(request):
+    feuilles = Species.objects.exclude(name_leaf="").all()
+    context = {'species_list': feuilles, 'type': 'Feuilles'}
     return render(request, 'catalogue/catalogue.html', context)
 
-
-def list_items(request, category):
-    context = {'category': category}
-    return render(request, 'catalogue/list.html', context)
+def catalogue_fruits(request):
+    fruits = Species.objects.exclude(name_fruit="").all()
+    context = {'species_list': fruits, 'type': 'Fruits'}
+    return render(request, 'catalogue/catalogue.html', context)

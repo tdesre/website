@@ -1,11 +1,21 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'accueil/accueil.css' %}">
 </head>
 <body>
-    <h1>Bienvenue !</h1>
-    <a href="/catalogue/?category=feuilles">Voir les feuilles</a>
-    <a href="/catalogue/?category=fruits">Voir les fruits</a>
+    <h1>Bienvenue sur notre site</h1>
+    <div>
+        <a href="{% url 'catalogue_feuilles' %}">
+            <button>Feuilles</button>
+        </a>
+        <a href="{% url 'catalogue_fruits' %}">
+            <button>Fruits</button>
+        </a>
+    </div>
 </body>
 </html>

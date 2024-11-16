@@ -932,23 +932,6 @@ input, select, textarea {
 		padding: 3em 2.25em 1.75em 2.25em ;
 	}
 
-	
-		#text-section {
-			background-color: #f5f5f5; /* Couleur de fond légère */
-			padding: 0.4em 0.25em 0.1em 0.25em; /* Espacement autour du texte */
-			text-align: center; /* Centrer le texte */
-		}
-		
-		#text-section .inner {
-			max-width: 800px; /* Largeur maximale */
-			margin: 0 auto; /* Centrer le bloc */
-		}
-		
-		#text-section p {
-			font-size: 0.9rem;
-			line-height: 1.6;
-		}
-
 /* Footer */
 
 	#footer {

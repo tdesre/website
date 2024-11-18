@@ -36,3 +36,5 @@ def species_search_view(request, text):
     
 '''
 
+def catalogue_home(request):
+    return render(request, 'catalogue/catalogue_home.html')

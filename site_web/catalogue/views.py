@@ -7,6 +7,7 @@ from django.template import loader
 def catalogue_feuilles(request):
     feuilles = Species.objects.exclude(name_leaf="").all()
     context = {'species_list': feuilles, 'type': 'Feuilles'}
+    return render(request, 'catalogue/catalogue.html', context)
 
 def search_species(keyword):
     # Utilisation de Q pour construire la requête de recherche

@@ -18,13 +18,16 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings
 
+#lien a tester pour leguidevegetal:
+# http://leguidevegetal:8000/catalogue/feuilles/
+# Toujours ajt le port :8000, indispensable sur Django
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('accueil/', include('accueil.urls')),
     path('catalogue/', include('catalogue.urls')),
     path('description/', include('description.urls'))
 ]
-
 
 if settings.DEBUG:
     import debug_toolbar

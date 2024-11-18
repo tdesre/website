@@ -1,6 +1,6 @@
 from django.db import models
-
-from django.db import models
+from catalogue import fruit_photos
+from django import forms
 
 class Species(models.Model):
     name = models.CharField(max_length=200, unique=True)

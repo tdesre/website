@@ -32,6 +32,7 @@
 
 {% if results %}
 <ul>
+    <h4>Résultat trouvé pour "{{ keyword }}" : </h4>
     {% for species_name in results %}
     <li>{{ species_name }}</li>
     {% endfor %}

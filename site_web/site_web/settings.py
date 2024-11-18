@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -62,9 +63,7 @@ ROOT_URLCONF = "site_web.urls"
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [  # Cela indique à Django où chercher les templates
-            BASE_DIR / 'templates',  # Cherche dans le répertoire 'templates' à la racine du projet
-        ],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,  # Cela permet de chercher aussi dans les répertoires 'templates' de chaque application
         'OPTIONS': {
             'context_processors': [

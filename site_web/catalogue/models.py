@@ -11,3 +11,7 @@ class Species(models.Model):
     description = models.CharField(max_length=100000, unique=True, blank=True)
     folder_gallery = models.CharField(max_length=200, unique=True, blank=True)
     keywords = models.CharField(max_length=1000, unique=False, blank=True)
+
+
+def __str__(self):
+    return self.name

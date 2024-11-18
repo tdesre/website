@@ -1,0 +1,14 @@
+<form method="GET" action="{% url 'species_search' text=keyword %}">
+    <input type="text" name="keyword" placeholder="Rechercher" value="{{ keyword }}">
+    <button type="submit">Chercher</button>
+</form>
+
+{% if results %}
+<ul>
+    {% for species_name in results %}
+    <li>{{ species_name }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>Aucun résultat trouvé pour "{{ keyword }}"</p>
+{% endif %}

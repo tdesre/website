@@ -12,10 +12,10 @@ def description(request, id):
         return redirect('/description/1')
     
     species = get_object_or_404(Species, id=id)
-    images = []
+    images_path = []
     for filename in os.listdir(species.folder_gallery):
         if filename.lower().endswith(('.png', '.jpg', '.jpeg', '.gif')):
-            images.append(species.folder_gallery+str("/")+filename)
+            images_path.append(species.folder_gallery+str("/")+filename)
 
     try:
         with open(species.description, 'r', encoding='utf-8') as file:
@@ -23,8 +23,7 @@ def description(request, id):
     except FileNotFoundError:
         species.description = "Fichier non trouvé."
 
-    context= {**model_to_dict(species), 'images': images}
-
+    context= {**model_to_dict(species), 'images_path': images_path}
     return render(request, 'description/description.html', context)
 
 def error(request, text):

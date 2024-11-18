@@ -16,7 +16,7 @@
 				<!-- Header -->
 					<header id="header">
 						<h1>{{name}}</h1>
-						<p>{{description}}</p>
+						<p>créer localisation</p>
 						<ul class="icons">
 							<li><a href="/catalogue" class="icon solid fa-th-large"><span class="label">Vers catalogue </span></a></li>
 							<li><a href="/description/{{ id|add:-1 }}" class="icon solid fa-long-arrow-alt-left"><span class="label">Espèce précédente</span></a></li>
@@ -28,15 +28,14 @@
 
 				<!-- Thumbnail -->
 					<section id="thumbnails">
-						{% for image in images %}
+						{% for image in images_path %}
 						<article>
 							{% with full_path=image|stringformat:"s" %}
 								<a class="thumbnail" href="{% static full_path %}" data-position="left center" >
 									<img src="{% static full_path %}" alt="image" />
 								</a>
 							{% endwith %}
-							<h2>titre de l'image</h2>
-							<p>description de l'image</p>
+							<h2>{{description}}</h2>
 						</article>
 						{% endfor %}
 					</section>

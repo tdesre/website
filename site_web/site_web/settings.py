@@ -59,17 +59,20 @@ INTERNAL_IPS = ['127.0.0.1']
 
 ROOT_URLCONF = "site_web.urls"
 
+
 TEMPLATES = [
     {
-        "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
-        "APP_DIRS": True,
-        "OPTIONS": {
-            "context_processors": [
-                "django.template.context_processors.debug",
-                "django.template.context_processors.request",
-                "django.contrib.auth.context_processors.auth",
-                "django.contrib.messages.context_processors.messages",
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [  # Cela indique à Django où chercher les templates
+            BASE_DIR / 'templates',  # Cherche dans le répertoire 'templates' à la racine du projet
+        ],
+        'APP_DIRS': True,  # Cela permet de chercher aussi dans les répertoires 'templates' de chaque application
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
             ],
         },
     },

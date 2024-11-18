@@ -1,25 +1,71 @@
+/* Appliquer une image de fond */
 body {
-    background-color: #f4f4f4;
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    font-family: Arial, sans-serif;
+    background: url("images/forest.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
 }
 
-h1 {
-    color: #333;
+/* Centrage des éléments */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
     text-align: center;
-    padding: 20px;
+    background: rgba(0, 0, 0, 0.5); /* Légère opacité pour rendre le texte plus lisible */
 }
 
-button {
-    background-color: #007BFF;
-    color: white;
+/* Style pour le titre */
+h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+/* Style pour le paragraphe */
+p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* Conteneur des boutons */
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+/* Style des boutons */
+button.animated-button {
+    background-color: #28a745;
+    color: #fff;
     border: none;
-    padding: 10px 20px;
-    font-size: 16px;
+    border-radius: 5px;
+    padding: 15px 30px;
+    font-size: 1.2rem;
     cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, opacity 1s ease-in-out;
+    animation: fadeIn 2s ease-out;
 }
 
-button:hover {
-    background-color: #0056b3;
+/* Effet hover */
+button.animated-button:hover {
+    background-color: #218838;
+    transform: scale(1.1); /* Agrandit légèrement le bouton */
+}
+
+/* Animation d'apparition des boutons */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

@@ -8,14 +8,20 @@
     <link rel="stylesheet" type="text/css" href="{% static 'accueil/accueil.css' %}">
 </head>
 <body>
-    <h1>Bienvenue sur notre site</h1>
-    <div>
-        <a href="{% url 'catalogue_feuilles' %}">
-            <button>Feuilles</button>
-        </a>
-        <a href="{% url 'catalogue_fruits' %}">
-            <button>Fruits</button>
-        </a>
+    <div class="hero">
+        <h1>Bienvenue sur notre site</h1>
+        <p>
+            Explorez notre catalogue de feuilles et de fruits pour en savoir plus sur les espèces 
+            végétales. Cliquez sur une catégorie pour commencer votre aventure !
+        </p>
+        <div class="buttons">
+            <a href="{% url 'catalogue_feuilles' %}">
+                <button class="animated-button">Feuilles</button>
+            </a>
+            <a href="{% url 'catalogue_fruits' %}">
+                <button class="animated-button">Fruits</button>
+            </a>
+        </div>
     </div>
 </body>
 </html>

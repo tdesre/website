@@ -8,7 +8,9 @@
     <link rel="stylesheet" type="text/css" href="{% static 'catalogue/catalogue.css' %}">
 </head>
 <body>
-    <h1>Catalogue de {{ type }}</h1>
+    <div><h1>Catalogue de {{ type }}</h1>
+        <a href="{% url 'accueil' %}">Retour à l'accueil</a></div>
+    
     <ul>
         {% for species in species_list %}
         <li>
@@ -21,6 +23,6 @@
         
         {% endfor %}
     </ul>
-    <a href="{% url 'accueil' %}">Retour à l'accueil</a>
+    
 </body>
 </html>

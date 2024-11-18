@@ -46,6 +46,8 @@ a {
 
 a:hover {
     text-decoration: underline;
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(255, 0, 100, 0.2);
 }
 
 button {

@@ -8,11 +8,25 @@
     <link rel="stylesheet" type="text/css" href="{% static 'accueil/accueil.css' %}">
 </head>
 <body>
+    <header class="site-header">
+        <div class="logo">
+            <img src="{% static 'accueil/images/logo.avif' %}" alt="Logo du site">
+        </div>
+        <h1 class="site-name">Catalogue Botanique</h1>
+    </header>
+    
+    
+    <div class="carousel">
+        <img src="{% static 'accueil/images/cerises.jpg' %}" alt="Image 1">
+        <img src="{% static 'accueil/images/chene2.jpg' %}" alt="Image 2">
+        <img src="{% static 'accueil/images/polypote.jpg' %}" alt="Image 3">
+    </div>
+    
     <div class="hero">
         <h1>Bienvenue sur notre site</h1>
         <p>
-            Explorez notre catalogue de feuilles et de fruits pour en savoir plus sur les espèces 
-            végétales. Cliquez sur une catégorie pour commencer votre aventure !
+            Explorez notre catalogue de feuilles et de fruits pour en savoir plus sur les espèces végétales.
+            Cliquez sur une catégorie pour commencer votre aventure !
         </p>
         <div class="buttons">
             <a href="{% url 'catalogue_feuilles' %}">
@@ -23,5 +37,17 @@
             </a>
         </div>
     </div>
+
+    <div class="about">
+        <h2>À propos</h2>
+        <p class="about-content">
+            Ce site a pour objectif de vous faire découvrir une large variété de feuilles et de fruits 
+            issus de diverses espèces botaniques. Explorez et apprenez-en davantage !
+        </p>
+    </div>
+
+    <footer class="site-footer">
+        <p>&copy; 2024 - Projet Catalogue Botanique</p>
+    </footer>
 </body>
 </html>

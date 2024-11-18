@@ -30,11 +30,13 @@
 					<section id="thumbnails">
 						{% for image in images %}
 						<article>
-							<a class="thumbnail" href="{% static image.full %}" data-position="left center">
-								<img src="{% static image.thumb %}" alt="{{ image.title }}" />
-							</a>
-							<h2>{{ image.title }}</h2>
-							<p>{{ image.desc }}</p>
+							{% with full_path=image|stringformat:"s" %}
+								<a class="thumbnail" href="{% static full_path %}" data-position="left center" >
+									<img src="{% static full_path %}" alt="image" />
+								</a>
+							{% endwith %}
+							<h2>titre de l'image</h2>
+							<p>description de l'image</p>
 						</article>
 						{% endfor %}
 					</section>

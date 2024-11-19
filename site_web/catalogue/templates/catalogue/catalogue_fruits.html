@@ -62,6 +62,44 @@
                 <p class="masthead-subheading font-weight-light mb-0">Trouve l'arbre correspondant à ton fruit</p>
             </div>
         </header>
+         <!-- Barre de recherche -->
+         <section class="search-section text-center my-4">
+            <div class="container">
+                <form method="GET" onsubmit="redirectToSearch(event)">
+                    <input type="text" id="search-input" placeholder="Rechercher" value="{{ keyword }}">
+                    <button type="submit" class="btn btn-primary">Chercher</button>
+                </form>
+            </div>
+        </section>
+
+        <script>
+            function redirectToSearch(event) {
+                event.preventDefault();
+                const input = document.getElementById('search-input').value.trim();
+                if (input) {
+                    window.location.href = `/catalogue/search/${encodeURIComponent(input)}/`;
+                }
+            }
+        </script>
+
+        <!-- Résultats de la recherche -->
+        {% if results %}
+        <section class="results-section text-center">
+            <div class="container">
+                <h4>Résultat trouvé pour "{{ keyword }}" :</h4>
+                <ul>
+                    {% for species in results %}
+                        <li>
+                            <a href="{% url 'species_detail' species_name=species.name %}">{{ species.name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+        {% else %}
+        <p>Aucun résultat trouvé pour "{{ keyword }}".</p>
+        {% endif %}
+
         <!-- Portfolio Section-->
         <section class="page-section portfolio" id="portfolio">
             <div class="container">

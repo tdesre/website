@@ -8,6 +8,7 @@ def catalogue_feuilles(request):
     feuilles = Species.objects.exclude(file_leaf="")
     images = [{'type': 'Feuilles', 'path': feuille.file_leaf, 'id': feuille.id, 'portfolio_id':'portfolioModal'+str(feuille.id)} for feuille in feuilles]
     return render(request, 'catalogue/catalogue_feuilles.html', {'images' : images})
+    
 
 def catalogue_fruits(request):
     fruits = Species.objects.exclude(file_leaf="")
@@ -26,7 +27,8 @@ def species_search_view(request, text):
     return render(request, 'catalogue/search_results.html', {'results': results, 'keyword': keyword})
 
 def catalogue_home(request):
-    return render(request, 'catalogue/catalogue_home.html')
+    species_list = Species.objects.annotate(average_score=Avg('ratings__score'))  # Ajoute la moyenne des notes
+    return render(request, 'catalogue/catalogue_home.html', {'species_list': species_list})
 
 def species_detail(request, species_name):
     species = get_object_or_404(Species, name=species_name)

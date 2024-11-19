@@ -60,7 +60,7 @@ body, html {
     }
 
 .logo img:hover{
-    animation: spin 0.1s linear infinite;
+    animation: spin 1s linear infinite;
 }
     
 
@@ -183,6 +183,20 @@ footer {
     display: flex; /* Utilise Flexbox pour centrer */
     justify-content: center; /* Centre le contenu horizontalement */
     align-items: center; /* Centre le contenu verticalement */
+    height: 50px;
+}
+
+.names{
+    font-size: 0.7rem;
+    padding-left: 1080px;
+    align-items: center;
+    height: 0px;
+}
+
+.footer-description {
+    font-size: 0.7rem;
+    align-items: center;
+    height: 0px;
 }
 
 
@@ -196,10 +210,66 @@ footer {
     padding: 10px; /* Ajoute un peu d'espace autour du contenu */
     border-radius: 10px; /* Coins arrondis */
     font-size: 0.75rem; /* Taille du texte réduite */
-    color: rgba(255, 255, 255, 0.65); /* Couleur du texte */
+    color: rgba(255, 255, 255, 0.8); /* Couleur du texte */
 }
 
 .about-content {
     font-size: 1rem; /* Taille légèrement augmentée pour le contenu */
-    color: rgba(255, 255, 255, 0.65);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+.quote {
+    position: absolute; /* Permet de déplacer la section indépendamment */
+    bottom: 10%; /* Garde un espace entre la section et le bas de la page */
+    right: 0.5%; /* Positionne la section à gauche avec un décalage */
+    left: 80%;
+    background-color: rgba(255, 255, 255, 0.2); /* Fo5nd légèrement transparent */
+    padding: 10px; /* Ajoute un peu d'espace autour du contenu */
+    border-radius: 7px; /* Coins arrondis */
+    font-size: 0.9rem; /* Taille du texte réduite */
+    color: rgba(255, 255, 255, 1);
+    height: 150px;
+}
+.quote p {
+    font-size: 1.15rem;
+    font-style: italic;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+    align-items: end; /* Transition pour l’apparition et disparition */
+}
+.quote p.hidden {
+    opacity: 0; /* Disparaît progressivement */
+}
+
+
+.loading-container {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+/* SVG du cercle */
+.progress-ring {
+    position: absolute;
+    top: -60px; /* Positionner au-dessus de la citation */
+    left: 80%;
+    transform: translateX(-50%);
+    transform: scale(0.7);
+}
+
+.progress-ring circle {
+    transform: rotate(-90deg); /* Faire démarrer l'anneau en haut */
+    transform-origin: center;
+    transition: stroke-dashoffset 10s linear; /* Animation progressive */
+}
+
+/* Animation de rotation */
+@keyframes spin {
+    0% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    100% {
+        transform: translateX(-50%) rotate(360deg);
+    }
 }

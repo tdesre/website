@@ -5,14 +5,14 @@ from django.http import HttpResponse
 from django.template import loader
 
 def catalogue_feuilles(request):
-    feuilles = Species.objects.exclude(name_leaf="").all()
-    context = {'species_list': feuilles, 'type': 'Feuilles'}
-    return render(request, 'catalogue/catalogue_feuilles.html', context)
+    feuilles = Species.objects.exclude(file_leaf="")
+    images = [{'type': 'Feuilles', 'path': feuille.file_leaf, 'id': feuille.id, 'portfolio_id':'portfolioModal'+str(feuille.id)} for feuille in feuilles]
+    return render(request, 'catalogue/catalogue_feuilles.html', {'images' : images})
 
 def catalogue_fruits(request):
-    fruits = Species.objects.exclude(name_fruit="").all()
-    context = {'species_list': fruits, 'type': 'Fruits'}
-    return render(request, 'catalogue/catalogue_fruits.html', context)
+    fruits = Species.objects.exclude(file_leaf="")
+    images = [{'type': 'Fruits', 'path': fruit.file_fruit, 'id': fruit.id, 'portfolio_id':'portfolioModal'+str(fruit.id)} for fruit in fruits]
+    return render(request, 'catalogue/catalogue_fruits.html', {'images' : images})
 
 def search_species(keyword):
     # Utilisation de Q pour construire la requête de recherche

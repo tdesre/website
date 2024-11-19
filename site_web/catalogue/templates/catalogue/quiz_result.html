@@ -1,40 +1,105 @@
-{% extends "catalogue/base_quiz.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Terminé</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+            overflow: hidden;
+        }
+        h1 {
+            color: #2e8b57;
+            font-size: 2.5rem;
+            margin-top: 50px;
+        }
+        h2 {
+            color: #333;
+            font-size: 1.5rem;
+            margin: 20px 0;
+        }
+        .result-container {
+            margin: auto;
+            max-width: 600px;
+            padding: 20px;
+            border: 2px solid #2e8b57;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        button {
+            background-color: #2e8b57;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #3cb371;
+        }
+        .confetti {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: hsl(50, 100%, 50%);
+            animation: fall 3s linear infinite;
+            opacity: 0.7;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0.3;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Félicitations ! 🎉</h1>
+    <div class="result-container">
+        <h2>Vous avez terminé le quiz avec un score de : {{ score }}/5</h2>
+        <button onclick="window.location.href='/quiz';">Rejouer</button>
+        <button onclick="window.location.href='/';">Retour à l'accueil</button>
+    </div>
 
-{% block title %}Résultats du Quiz{% endblock %}
-
-{% block header %}
-Félicitations, vous avez terminé le quiz !
-<h2>Votre score : {{ score }}/5</h2>
-{% endblock %}
-
-{% block content %}
-<div class="button-container">
-    <a href="{% url 'quiz' %}" class="button">Rejouer</a>
-    <a href="/accueil/" class="button return">Retour au menu principal</a>
-</div>
-
-<!-- Conteneur pour les confettis -->
-<div id="confetti-container"></div>
-
-<script>
-    // Fonction pour créer des confettis
-    function createConfetti() {
-        const confetti = document.createElement('div');
-        confetti.className = 'confetti';
-        confetti.style.left = Math.random() * 100 + 'vw';
-        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`; // Couleurs aléatoires
-        confetti.style.animationDuration = Math.random() * 2 + 3 + 's'; // Durée aléatoire
-        document.body.appendChild(confetti);
-
-        // Supprimer les confettis après l'animation
-        setTimeout(() => {
-            confetti.remove();
-        }, 5000);
-    }
-
-    // Générer plusieurs confettis
-    for (let i = 0; i < 150; i++) {
-        createConfetti();
-    }
-</script>
-{% endblock %}
+    <div class="confetti">
+        <script>
+            // Générer des confettis
+            document.addEventListener("DOMContentLoaded", function () {
+                const confettiCount = 200;
+                const colors = ['#FFC107', '#4CAF50', '#2196F3', '#FF5722', '#9C27B0'];
+                for (let i = 0; i < confettiCount; i++) {
+                    const confetti = document.createElement("div");
+                    confetti.classList.add("confetti-piece");
+                    confetti.style.left = Math.random() * 100 + "vw";
+                    confetti.style.animationDuration = Math.random() * 2 + 2 + "s";
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                    document.body.appendChild(confetti);
+                }
+            });
+        </script>
+    </div>
+</body>
+</html>

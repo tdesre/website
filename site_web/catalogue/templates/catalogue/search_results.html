@@ -52,7 +52,7 @@
             <ul>
                 {% for species in results %}
                     <li>
-                        <!-- Génère un lien cliquable vers species_detail -->
+                        <!-- Génère un lien cliquable vers la view species_detail -->
                         <a href="{% url 'species_detail' species_name=species.name %}">{{ species.name }}</a>
                     </li>
                 {% endfor %}

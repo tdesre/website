@@ -15,6 +15,8 @@
 
 <h1>Résultats pour "{{ keyword }}"</h1>  -->
 
+
+<!-- 
 <form method="GET" onsubmit="redirectToSearch(event)">
     <input type="text" id="search-input" placeholder="Rechercher" value="{{ keyword }}">
     <button type="submit">Chercher</button>
@@ -39,4 +41,24 @@
 </ul>
 {% else %}
 <p>Aucun résultat trouvé pour "{{ keyword }}"</p>
+{% endif %} -->
+
+
+<!-- Résultats de la recherche -->
+{% if results %}
+    <section class="results-section text-center">
+        <div class="container">
+            <h4>Résultat trouvé pour "{{ keyword }}" :</h4>
+            <ul>
+                {% for species in results %}
+                    <li>
+                        <!-- Génère un lien cliquable vers species_detail -->
+                        <a href="{% url 'species_detail' species_name=species.name %}">{{ species.name }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+{% else %}
+    <p>Aucun résultat trouvé pour "{{ keyword }}".</p>
 {% endif %}

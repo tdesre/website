@@ -22,6 +22,7 @@ class Species(models.Model):
     def __str__(self):
         return f"Nom de l'espèce : {self.name}"
 
+
 class Rating(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)  # Utilisateur qui donne la note
     species = models.ForeignKey(Species, on_delete=models.CASCADE, related_name='ratings')  # Espèce notée

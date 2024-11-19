@@ -1,13 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Résultat du Quiz</title>
-</head>
-<body>
-    <h1>Quiz terminé !</h1>
-    <h2>Votre score final est de {{ score }} sur 5</h2>
-    <a href="{% url 'quiz' %}">Rejouer</a>
-</body>
-</html>
+{% extends "catalogue/base_quiz.html" %}
+
+{% block title %}Résultats du Quiz{% endblock %}
+
+{% block header %}
+Félicitations, vous avez terminé le quiz !
+<h2>Votre score : {{ score }}/5</h2>
+{% endblock %}
+
+{% block content %}
+<div class="button-container">
+    <a href="{% url 'quiz' %}" class="button">Rejouer</a>
+    <a href="/accueil/" class="button return">Retour au menu principal</a>
+</div>
+
+<!-- Conteneur pour les confettis -->
+<div id="confetti-container"></div>
+
+<script>
+    // Fonction pour créer des confettis
+    function createConfetti() {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`; // Couleurs aléatoires
+        confetti.style.animationDuration = Math.random() * 2 + 3 + 's'; // Durée aléatoire
+        document.body.appendChild(confetti);
+
+        // Supprimer les confettis après l'animation
+        setTimeout(() => {
+            confetti.remove();
+        }, 5000);
+    }
+
+    // Générer plusieurs confettis
+    for (let i = 0; i < 150; i++) {
+        createConfetti();
+    }
+</script>
+{% endblock %}

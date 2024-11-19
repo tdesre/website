@@ -46,24 +46,29 @@ def quiz_view(request):
     # Sélectionner une espèce aléatoire
     species_list = list(Species.objects.all())
     correct_species = random.choice(species_list)
-    # Générer des options de réponse
-    other_species = random.sample(species_list, min(3, len(species_list)))
+
+    # Générer des options de réponse sans inclure des doublons
+    other_species = random.sample([s for s in species_list if s != correct_species], min(3, len(species_list) - 1))
     options = [correct_species] + other_species
     random.shuffle(options)
-    # Afficher l'image et les options
+
+    # Préparer le contexte
     context = {
-        'image': correct_species.file_leaf,  # Change en `file_fruit` si nécessaire
+        'image': f"/{correct_species.file_leaf}",  # Convertir les backslashes
         'options': options,
         'correct_id': correct_species.id,
         'round': request.session['quiz_round'],
-        'score': request.session['quiz_score'],}
+        'score': request.session['quiz_score'],
+    }
+
     # Vérifier la réponse précédente
     if request.method == 'POST':
         selected_id = int(request.POST.get('selected_id'))
-        if selected_id == request.POST.get('correct_id'):
+        correct_id = int(request.POST.get('correct_id'))
+        if selected_id == correct_id:
             request.session['quiz_score'] += 1
         request.session['quiz_round'] += 1
-        return redirect('quiz')  # Passe au tour suivant
+        return redirect('quiz')
 
     return render(request, 'catalogue/quiz.html', context)
 

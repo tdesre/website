@@ -64,7 +64,7 @@ ROOT_URLCONF = "site_web.urls"
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [],  # Vide, car on utilise les templates des applications
         'APP_DIRS': True,  # Cela permet de chercher aussi dans les répertoires 'templates' de chaque application
         'OPTIONS': {
             'context_processors': [

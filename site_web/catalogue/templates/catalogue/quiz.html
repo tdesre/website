@@ -1,29 +1,27 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz - Le Guide Végétal</title>
-</head>
-<body>
-    <h1>Quiz - Tour {{ round }}/5</h1>
-    <h2>Score actuel : {{ score }}</h2>
-    <form method="POST">
-        {% csrf_token %}
-        <img src="{% static image %}" alt="Feuille à identifier" style="width: 300px;">
-        <ul>
-            {% for option in options %}
-                <li>
-                    <label>
-                        <input type="radio" name="selected_id" value="{{ option.id }}" required>
-                        {{ option.name }}
-                    </label>
-                </li>
-            {% endfor %}
-        </ul>
-        <input type="hidden" name="correct_id" value="{{ correct_id }}">
-        <button type="submit">Valider</button>
-    </form>
-</body>
-</html>
+{% extends "catalogue/base_quiz.html" %}
+
+{% block title %}Tour {{ round }} - Quiz{% endblock %}
+
+{% block header %}
+Quiz - Tour {{ round }}/5
+<h2>Score actuel : {{ score }}</h2>
+{% endblock %}
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <img src="{{ image }}" alt="Feuille à identifier" style="width: 300px;">
+    <ul>
+        {% for option in options %}
+            <li>
+                <label>
+                    <input type="radio" name="selected_id" value="{{ option.id }}" required>
+                    {{ option.name }}
+                </label>
+            </li>
+        {% endfor %}
+    </ul>
+    <input type="hidden" name="correct_id" value="{{ correct_id }}">
+    <button type="submit" class="button">Valider</button>
+</form>
+{% endblock %}

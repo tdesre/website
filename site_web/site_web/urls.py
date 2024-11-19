@@ -19,6 +19,10 @@ from django.urls import path,include
 from django.conf import settings
 from django.shortcuts import redirect
 
+#lien a tester pour leguidevegetal:
+# http://leguidevegetal:8000/catalogue/feuilles/
+# Toujours ajt le port :8000, indispensable sur Django
+
 urlpatterns = [
     path('', lambda request: redirect('accueil/')),  # Redirige vers l'accueil
     path("admin/", admin.site.urls),
@@ -26,7 +30,6 @@ urlpatterns = [
     path('catalogue/', include('catalogue.urls')),
     path('description/', include('description.urls'))
 ]
-
 
 if settings.DEBUG:
     import debug_toolbar

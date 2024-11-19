@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -26,8 +27,7 @@ SECRET_KEY = "django-insecure-h$t&&@y0pvn=(_)mko$9pu@g*nv902#dw4fg=r2&zlaxl_xzj1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['leguidevegetal', 'localhost', '127.0.0.1']
 
 # Application definition
 
@@ -64,9 +64,7 @@ ROOT_URLCONF = "site_web.urls"
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [  # Cela indique à Django où chercher les templates
-            BASE_DIR / 'templates',  # Cherche dans le répertoire 'templates' à la racine du projet
-        ],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,  # Cela permet de chercher aussi dans les répertoires 'templates' de chaque application
         'OPTIONS': {
             'context_processors': [

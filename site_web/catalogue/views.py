@@ -1,9 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Q
 from .models import Species
 from django.http import HttpResponse
 from django.template import loader
-from django.shortcuts import get_object_or_404
 
 def catalogue_feuilles(request):
     feuilles = Species.objects.exclude(file_leaf="")
@@ -31,4 +30,4 @@ def catalogue_home(request):
 
 def species_detail(request, species_name):
     species = get_object_or_404(Species, name=species_name)
-    return render(request, 'catalogue/species_detail.html', {'species': species})
+    return redirect('/description/'+str(species.id))

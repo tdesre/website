@@ -1,0 +1,196 @@
+/* START BODY */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url("images/forest.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    height: 100%;
+    overflow: hidden; /* Empêche le défilement */
+    display: flex;
+    flex-direction: column;
+}
+/* END HOTEL */
+
+
+/* START CAROUSEL */
+.carousel {
+    width: 100%;
+    height: 200px; /* Réduit la hauteur du carousel */
+    overflow: hidden;
+    display: flex;
+}
+
+.carousel img {
+    margin-left: 100px;
+    object-fit: contain; /* Recadre les images pour qu'elles remplissent bien l'espace */
+    overflow: hidden;
+    background-color: transparent;
+    display: block;
+    background-size: cover;
+    /*animation : scroll 5s infinite;*/
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(100%0); /* Position initiale */
+    }
+    to {
+        transform: translateX(-100%); /* Fait défiler tout le contenu */
+    }
+}
+/* END CAROUSEL */
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg); /* Position initiale */
+    }
+    100% {
+        transform: rotate(360deg); /* Rotation complète */
+    }
+}
+
+.logo img {
+    width: 80px; 
+    height: 80px; 
+    border-radius: 100%; 
+    display: block;
+    animation: spin 8s linear infinite;
+    }
+
+.logo img:hover{
+    animation: spin 0.1s linear infinite;
+}
+    
+
+.site-header {
+    display: flex;
+    justify-content: center; /* Centre le logo horizontalement */
+    align-items: center;    /* Centre le logo verticalement */
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.2); /* Optionnel, ajoute un fond au header */
+}
+
+.site-name {
+    font-size: 2.5rem; /* Augmente la taille */
+    color: #22425c; /* Change la couleur en sombre */
+    font-weight: bold;
+    margin-left: 15px; /* Ajoute un léger décalage à gauche */
+}
+
+
+/* Centrage des éléments */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5); /* Légère opacité pour rendre le texte plus lisible */
+}
+
+/* Style pour le titre */
+h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+/* Style pour le paragraphe */
+p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* Conteneur des boutons */
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+/* Style des boutons */
+button.animated-button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, opacity 1s ease-in-out;
+    animation: fadeIn 2s ease-out;
+}
+
+/* Effet hover */
+button.animated-button:hover {
+    background-color: #218838;
+    transform: scale(1.1); /* Agrandit légèrement le bouton */
+}
+
+
+/* Animation d'apparition des boutons */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInEffect 1.5s ease-out forwards;
+}
+
+@keyframes fadeInEffect {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*
+footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    font-size: 0.2rem;
+}
+*/
+
+.site-footer {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.65);
+    color: #fff;
+    font-size: 0.2rem;
+    text-align: center;
+}
+
+
+.about {
+    position: absolute; /* Permet de déplacer la section indépendamment */
+    bottom: 10%; /* Garde un espace entre la section et le bas de la page */
+    left: 0.5%; /* Positionne la section à gauche avec un décalage */
+    right: 80%;
+    background-color: rgba(0, 0, 0, 0.35); /* Fond légèrement transparent */
+    padding: 10px; /* Ajoute un peu d'espace autour du contenu */
+    border-radius: 10px; /* Coins arrondis */
+    font-size: 0.75rem; /* Taille du texte réduite */
+    color: rgba(255, 255, 255, 0.65); /* Couleur du texte */
+}
+
+.about-content {
+    font-size: 1rem; /* Taille légèrement augmentée pour le contenu */
+    color: rgba(255, 255, 255, 0.65);
+}

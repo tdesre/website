@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'catalogue/catalogue.css' %}">
+</head>
+<body>
+    <div><h1>Catalogue de {{ type }}</h1>
+        <a href="{% url 'accueil' %}">Retour à l'accueil</a></div>
+    
+    <ul>
+        {% for species in species_list %}
+        <li>
+            {% if type == 'Feuilles' %}
+                {{ species.name_leaf }}
+            {% else %}
+                {{ species.name_fruit }}
+            {% endif %}
+        </li>
+        
+        {% endfor %}
+    </ul>
+    
+</body>
+</html>

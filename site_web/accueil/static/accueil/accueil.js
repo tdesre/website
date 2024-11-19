@@ -44,3 +44,13 @@ document.addEventListener("DOMContentLoaded", function () {
     // Lance immédiatement l’animation à la fin du chargement
     changeQuote();
 });
+
+
+
+document.querySelector(".interactive-footer").addEventListener("mouseenter", function () {
+    this.style.height = "600px"; // Étendre la hauteur
+});
+
+document.querySelector(".interactive-footer").addEventListener("mouseleave", function () {
+    this.style.height = "50px"; // Réduire la hauteur
+});

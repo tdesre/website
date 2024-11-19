@@ -160,57 +160,80 @@ button.animated-button:hover {
     }
 }
 
-/*
-footer {
-    background-color: rgba(0, 0, 0, 0.8);
+.names{
+    position: absolute;
+    font-size: 0.7rem;
+    height: 0px;
+    left: 36%
+}
+
+/* Style du footer */
+.interactive-footer {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.8); /* Fond sombre */
     color: white;
     text-align: center;
-    font-size: 0.2rem;
+    overflow: hidden; /* Cache la section cachée tant que le footer est petit */
+    height: 50px; /* Hauteur initiale du footer */
+    transition: height 0.5s ease; /* Animation de la hauteur */
 }
-*/
 
-.site-footer {
-    position: fixed; /* Fixe le footer au bas de la fenêtre */
-    bottom: 0; /* Aligne le footer en bas de l'écran */
+/* Au survol, on agrandit le footer */
+.interactive-footer:hover {
+    height: 600px; /* Hauteur étendue pour afficher le contenu caché */
+}
+
+/* Section visible (noms des personnes) */
+.footer-default {
+    font-size: 0.9rem;
+    transition: opacity 0.3s ease;
+}
+
+/* Section cachée (à propos et faits intéressants) */
+.footer-hidden {
+    opacity: 0; /* Cachée par défaut */
+    transition: opacity 0.5s ease; /* Animation de l’apparition */
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute; /* Position absolue pour que la section se déplace avec la hauteur du footer */
+    bottom: 1px; /* Garder un petit espacement par rapport au bas du footer */
     left: 0;
-    width: 100%; /* Le footer occupe toute la largeur */
-    background-color: rgba(0, 0, 0, 0.65); /* Fond semi-transparent */
-    color: #fff; /* Couleur du texte */
-    text-align: center; /* Centre le texte horizontalement */
-    font-size: 0.9rem; /* Taille du texte */
-    z-index: 10; /* Assure que le footer est au-dessus des autres éléments */
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5); /* Ajoute une ombre subtile */
-    display: flex; /* Utilise Flexbox pour centrer */
-    justify-content: center; /* Centre le contenu horizontalement */
-    align-items: center; /* Centre le contenu verticalement */
-    height: 50px;
+    right: 0;
 }
 
-.names{
-    font-size: 0.7rem;
-    padding-left: 1080px;
-    align-items: center;
-    height: 0px;
+.footer-hidden p{
+    font-size: 1rem;
 }
 
-.footer-description {
-    font-size: 0.7rem;
-    align-items: center;
-    height: 0px;
+/* Quand on survole le footer, la section cachée devient visible */
+.interactive-footer:hover .footer-hidden {
+    opacity: 1;
 }
+
+
+/* Lors du survol, on masque la section des noms */
+.interactive-footer:hover .footer-default {
+    opacity: 0; /* Cache la section par défaut lors du survol */
+}
+
 
 
 
 .about {
     position: absolute; /* Permet de déplacer la section indépendamment */
-    bottom: 10%; /* Garde un espace entre la section et le bas de la page */
+    bottom: 40%; /* Garde un espace entre la section et le bas de la page */
     left: 0.5%; /* Positionne la section à gauche avec un décalage */
     right: 80%;
+    width: 400px;
     background-color: rgba(0, 0, 0, 0.35); /* Fond légèrement transparent */
     padding: 10px; /* Ajoute un peu d'espace autour du contenu */
     border-radius: 10px; /* Coins arrondis */
     font-size: 0.75rem; /* Taille du texte réduite */
     color: rgba(255, 255, 255, 0.8); /* Couleur du texte */
+    height: 150px;
 }
 
 .about-content {
@@ -221,9 +244,9 @@ footer {
 
 .quote {
     position: absolute; /* Permet de déplacer la section indépendamment */
-    bottom: 10%; /* Garde un espace entre la section et le bas de la page */
+    bottom: 40%; /* Garde un espace entre la section et le bas de la page */
     right: 0.5%; /* Positionne la section à gauche avec un décalage */
-    left: 80%;
+    width: 450px;
     background-color: rgba(255, 255, 255, 0.2); /* Fo5nd légèrement transparent */
     padding: 10px; /* Ajoute un peu d'espace autour du contenu */
     border-radius: 7px; /* Coins arrondis */

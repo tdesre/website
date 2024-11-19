@@ -9,9 +9,10 @@ body, html {
     height: 100%;
     overflow: hidden; /* Empêche le défilement */
     display: flex;
-    flex-direction: column
+    flex-direction: column;
 }
 /* END HOTEL */
+
 
 /* START CAROUSEL */
 .carousel {
@@ -25,10 +26,10 @@ body, html {
     margin-left: 100px;
     object-fit: contain; /* Recadre les images pour qu'elles remplissent bien l'espace */
     overflow: hidden;
-    animation : scroll 5s infinite;
     background-color: transparent;
     display: block;
     background-size: cover;
+    /*animation : scroll 5s infinite;*/
 }
 
 @keyframes scroll {
@@ -41,16 +42,27 @@ body, html {
 }
 /* END CAROUSEL */
 
+@keyframes spin {
+    0% {
+        transform: rotate(0deg); /* Position initiale */
+    }
+    100% {
+        transform: rotate(360deg); /* Rotation complète */
+    }
+}
 
 .logo img {
-    width: auto; /* Maintient le ratio de l'image */
-    height: 80px; /* Ajustez cette valeur selon vos préférences */
-    object-fit: contain; /* Affiche uniquement le contenu important de l'image */
-    border-radius: 50%; /* Coupe l'image en cercle si elle est rectangulaire */
-    overflow: hidden; /* Assure que seules les parties visibles s'affichent */
-    background-color: transparent;
-    background: url("image/logo.avif") no-repeat center center;
+    width: 80px; 
+    height: 80px; 
+    border-radius: 100%; 
+    display: block;
+    animation: spin 8s linear infinite;
+    }
+
+.logo img:hover{
+    animation: spin 0.1s linear infinite;
 }
+    
 
 .site-header {
     display: flex;
@@ -118,6 +130,7 @@ button.animated-button:hover {
     transform: scale(1.1); /* Agrandit légèrement le bouton */
 }
 
+
 /* Animation d'apparition des boutons */
 @keyframes fadeIn {
     0% {
@@ -167,17 +180,17 @@ footer {
 
 .about {
     position: absolute; /* Permet de déplacer la section indépendamment */
-    bottom: 0%;
-    right: 1%; /* Décalage par rapport au bord droit */
-    background-color: rgba(255, 255, 255, 0.75); /* Fond légèrement transparent */
-    padding: 3px;
-    border-radius: 10px;
-    font-size: 0.75rem; /* Réduit la taille du texte */
-    color: rgba(0, 0, 0, 1);
+    bottom: 10%; /* Garde un espace entre la section et le bas de la page */
+    left: 0.5%; /* Positionne la section à gauche avec un décalage */
+    right: 80%;
+    background-color: rgba(0, 0, 0, 0.35); /* Fond légèrement transparent */
+    padding: 10px; /* Ajoute un peu d'espace autour du contenu */
+    border-radius: 10px; /* Coins arrondis */
+    font-size: 0.75rem; /* Taille du texte réduite */
+    color: rgba(255, 255, 255, 0.65); /* Couleur du texte */
 }
 
-
 .about-content {
-    font-size: 1rem;
-    color:rgba(0, 0, 0, 1)
+    font-size: 1rem; /* Taille légèrement augmentée pour le contenu */
+    color: rgba(255, 255, 255, 0.65);
 }

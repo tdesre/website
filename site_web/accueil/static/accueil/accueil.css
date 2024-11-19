@@ -170,12 +170,21 @@ footer {
 */
 
 .site-footer {
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.65);
-    color: #fff;
-    font-size: 0.2rem;
-    text-align: center;
+    position: fixed; /* Fixe le footer au bas de la fenêtre */
+    bottom: 0; /* Aligne le footer en bas de l'écran */
+    left: 0;
+    width: 100%; /* Le footer occupe toute la largeur */
+    background-color: rgba(0, 0, 0, 0.65); /* Fond semi-transparent */
+    color: #fff; /* Couleur du texte */
+    text-align: center; /* Centre le texte horizontalement */
+    font-size: 0.9rem; /* Taille du texte */
+    z-index: 10; /* Assure que le footer est au-dessus des autres éléments */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5); /* Ajoute une ombre subtile */
+    display: flex; /* Utilise Flexbox pour centrer */
+    justify-content: center; /* Centre le contenu horizontalement */
+    align-items: center; /* Centre le contenu verticalement */
 }
+
 
 
 .about {

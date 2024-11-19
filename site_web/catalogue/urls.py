@@ -8,4 +8,5 @@ urlpatterns = [
     path('fruits/', views.catalogue_fruits, name='catalogue_fruits'),
     path('feuilles/<str:species_name>/', views.species_detail, name='species_detail'),  # Ajout de cette ligne
     path('search/<str:text>/', views.species_search_view, name='species_search'),
+    path('feuilles/<str:species_name>/rate', views.rate_species, name='rate_species')
 ]

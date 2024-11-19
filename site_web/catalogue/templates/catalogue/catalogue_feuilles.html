@@ -114,7 +114,7 @@
                 <!-- Portfolio Grid Items-->
                 <div class="row justify-content-center">
 
-                    {% for image in images %}
+                    {% for feuille, image in zip(feuilles, images) %}
                     <div class="col-md-6 col-lg-4 mb-5">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal{{ image.id }}">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
@@ -123,6 +123,14 @@
                                 </div>
                             </div>
                             <img class="img-fluid" src="{% static image.path %}" alt="{{image.id}}" />
+                            <h5>{{ specie.name }}</h5>  <!-- Nom de l'espèce -->
+
+                            <!-- Affichage de la note moyenne -->
+                            {% if specie.average_rating %}
+                                <p>Note moyenne : {{ specie.average_rating|floatformat:1 }}</p>  <!-- Formatée à une décimale -->
+                            {% else %}
+                                <p>Pas de note</p>  <!-- Si aucune note n'est attribuée -->
+                            {% endif %}
                         </div>
                     </div>
                     {% endfor %}

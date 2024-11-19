@@ -60,7 +60,7 @@ body, html {
     }
 
 .logo img:hover{
-    animation: spin 0.1s linear infinite;
+    animation: spin 1s linear infinite;
 }
     
 
@@ -160,37 +160,139 @@ button.animated-button:hover {
     }
 }
 
-/*
-footer {
-    background-color: rgba(0, 0, 0, 0.8);
+.names{
+    position: absolute;
+    font-size: 0.7rem;
+    height: 0px;
+    left: 36%
+}
+
+/* Style du footer */
+.interactive-footer {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.8); /* Fond sombre */
     color: white;
     text-align: center;
-    font-size: 0.2rem;
+    overflow: hidden; /* Cache la section cachée tant que le footer est petit */
+    height: 50px; /* Hauteur initiale du footer */
+    transition: height 0.5s ease; /* Animation de la hauteur */
 }
-*/
 
-.site-footer {
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.65);
-    color: #fff;
-    font-size: 0.2rem;
-    text-align: center;
+/* Au survol, on agrandit le footer */
+.interactive-footer:hover {
+    height: 600px; /* Hauteur étendue pour afficher le contenu caché */
 }
+
+/* Section visible (noms des personnes) */
+.footer-default {
+    font-size: 0.9rem;
+    transition: opacity 0.3s ease;
+}
+
+/* Section cachée (à propos et faits intéressants) */
+.footer-hidden {
+    opacity: 0; /* Cachée par défaut */
+    transition: opacity 0.5s ease; /* Animation de l’apparition */
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute; /* Position absolue pour que la section se déplace avec la hauteur du footer */
+    bottom: 1px; /* Garder un petit espacement par rapport au bas du footer */
+    left: 0;
+    right: 0;
+}
+
+.footer-hidden p{
+    font-size: 1rem;
+}
+
+/* Quand on survole le footer, la section cachée devient visible */
+.interactive-footer:hover .footer-hidden {
+    opacity: 1;
+}
+
+
+/* Lors du survol, on masque la section des noms */
+.interactive-footer:hover .footer-default {
+    opacity: 0; /* Cache la section par défaut lors du survol */
+}
+
+
 
 
 .about {
     position: absolute; /* Permet de déplacer la section indépendamment */
-    bottom: 10%; /* Garde un espace entre la section et le bas de la page */
+    bottom: 40%; /* Garde un espace entre la section et le bas de la page */
     left: 0.5%; /* Positionne la section à gauche avec un décalage */
     right: 80%;
+    width: 400px;
     background-color: rgba(0, 0, 0, 0.35); /* Fond légèrement transparent */
     padding: 10px; /* Ajoute un peu d'espace autour du contenu */
     border-radius: 10px; /* Coins arrondis */
     font-size: 0.75rem; /* Taille du texte réduite */
-    color: rgba(255, 255, 255, 0.65); /* Couleur du texte */
+    color: rgba(255, 255, 255, 0.8); /* Couleur du texte */
+    height: 150px;
 }
 
 .about-content {
     font-size: 1rem; /* Taille légèrement augmentée pour le contenu */
-    color: rgba(255, 255, 255, 0.65);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+.quote {
+    position: absolute; /* Permet de déplacer la section indépendamment */
+    bottom: 40%; /* Garde un espace entre la section et le bas de la page */
+    right: 0.5%; /* Positionne la section à gauche avec un décalage */
+    width: 450px;
+    background-color: rgba(255, 255, 255, 0.2); /* Fo5nd légèrement transparent */
+    padding: 10px; /* Ajoute un peu d'espace autour du contenu */
+    border-radius: 7px; /* Coins arrondis */
+    font-size: 0.9rem; /* Taille du texte réduite */
+    color: rgba(255, 255, 255, 1);
+    height: 150px;
+}
+.quote p {
+    font-size: 1.15rem;
+    font-style: italic;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+    align-items: end; /* Transition pour l’apparition et disparition */
+}
+.quote p.hidden {
+    opacity: 0; /* Disparaît progressivement */
+}
+
+
+.loading-container {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+/* SVG du cercle */
+.progress-ring {
+    position: absolute;
+    top: -60px; /* Positionner au-dessus de la citation */
+    left: 80%;
+    transform: translateX(-50%);
+    transform: scale(0.7);
+}
+
+.progress-ring circle {
+    transform: rotate(-90deg); /* Faire démarrer l'anneau en haut */
+    transform-origin: center;
+    transition: stroke-dashoffset 10s linear; /* Animation progressive */
+}
+
+/* Animation de rotation */
+@keyframes spin {
+    0% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    100% {
+        transform: translateX(-50%) rotate(360deg);
+    }
 }

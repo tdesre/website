@@ -51,8 +51,33 @@
         </p>
     </div>
 
-    <footer class="site-footer">
-        <p>&copy; 2024 - Projet Catalogue Botanique</p>
+    <section class="quote">
+        <h3>Fait intéressant</h3>
+        <div class="loading-container">
+            <div class="progress-ring">
+                <svg width="50" height="50">
+                    <circle cx="25" cy="25" r="20" fill="none" stroke="#fff" stroke-width="5" stroke-dasharray="125.6" stroke-dashoffset="125.6" />
+                </svg>
+            </div>
+            <p id="random-quote">"Les feuilles de bambou sont utilisées pour fabriquer du papier depuis des siècles."</p>
+        </div>
+    </section>
+
+    <footer class="interactive-footer">
+        <div class="footer-default">
+            <!--<p class="footer-description">&copy; 2024 - Projet Catalogue Botanique</p>-->
+            <p class="names"> Amélie BELLAZI - Hortense CLAUDON - Tom CONNERY - Théophile DESRE - Philippine FROUX - Ilan TARABULA</p>
+        </div>
+        <div class="footer-hidden">
+            <p>Ceci est un projet académique visant à démontrer des compétences en développement web.</p>
+            <h2>Contacts :</h2>
+            <p>Email : projet_catalogue_botanique@gmail.com</p>
+            <p>Téléphone portable : +33 1 23 45 67 89</p>
+        </div>
     </footer>
+    
+
+    <script src="{% static 'accueil/accueil.js' %}"></script>
+
 </body>
 </html>

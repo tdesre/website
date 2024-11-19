@@ -1,58 +1,12 @@
-<!--<form method="GET" action="{% url 'species_search' text=keyword %}">
-    <input type="text" name="keyword" placeholder="Rechercher" value="{{ keyword }}">
-    <button type="submit">Chercher</button>
-</form>
-
-{% if results %}
-<ul>
-    {% for species_name in results %}
-    <li>{{ species_name }}</li>
-    {% endfor %}
-</ul>
-{% else %}
-<p>Aucun résultat trouvé pour "{{ keyword }}"</p>
-{% endif %}
-
-<h1>Résultats pour "{{ keyword }}"</h1>  -->
-
-
-<!-- 
-<form method="GET" onsubmit="redirectToSearch(event)">
-    <input type="text" id="search-input" placeholder="Rechercher" value="{{ keyword }}">
-    <button type="submit">Chercher</button>
-</form>
-
-<script>
-    function redirectToSearch(event) {
-        event.preventDefault();
-        const input = document.getElementById('search-input').value.trim();
-        if (input) {
-            window.location.href = `/catalogue/search/${encodeURIComponent(input)}/`;
-        }
-    }
-</script>
-
-{% if results %}
-<ul>
-    <h4>Résultat trouvé pour "{{ keyword }}" : </h4>
-    {% for species_name in results %}
-    <li>{{ species_name }}</li>
-    {% endfor %}
-</ul>
-{% else %}
-<p>Aucun résultat trouvé pour "{{ keyword }}"</p>
-{% endif %} -->
-
 
 <!-- Résultats de la recherche -->
-{% if results %}
+<!-- {% if results %}
     <section class="results-section text-center">
         <div class="container">
             <h4>Résultat trouvé pour "{{ keyword }}" :</h4>
             <ul>
                 {% for species in results %}
                     <li>
-                        <!-- Génère un lien cliquable vers la view species_detail -->
                         <a href="{% url 'species_detail' species_name=species.name %}">{{ species.name }}</a>
                     </li>
                 {% endfor %}
@@ -61,4 +15,134 @@
     </section>
 {% else %}
     <p>Aucun résultat trouvé pour "{{ keyword }}".</p>
-{% endif %}
+{% endif %} -->
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Catalogue de recherche</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'catalogue/css/styles.css' %}" rel="stylesheet" type="text/css" />
+        <style>
+            /* Ajouter une image de fond pour la section Masthead */
+            .masthead {
+                background-image: url('{% static "catalogue/assets/img_fond_ecran.jpg" %}');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+        </style>
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="#page-top"><img src="{% static 'catalogue/assets/logo_site2.png' %}" alt="Logo" style="height: 45px;"></a>
+                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="border-radius: 50%; width: 70px; height: 70px; border: 2px solid red">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Portfolio</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead bg-primary text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+                <!-- Masthead Heading-->
+                <h1 class="masthead-heading text-uppercase mb-0" style="margin-top: 110px;">CATALOGUE DE RECHERCHE</h1>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-tree"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Masthead Subheading-->
+                <p class="masthead-subheading font-weight-light mb-0">Résultats affinés par la recherche</p>
+            </div>
+        </header>
+        <!-- Barre de recherche -->
+        <section class="search-section text-center my-4">
+            <div class="container">
+                <form method="GET" onsubmit="redirectToSearch(event)">
+                    <input type="text" id="search-input" placeholder="Rechercher" value="{{ keyword }}">
+                    <button type="submit" class="btn btn-primary">Chercher</button>
+                </form>
+            </div>
+        </section>
+
+        <script>
+            function redirectToSearch(event) {
+                event.preventDefault();
+                const input = document.getElementById('search-input').value.trim();
+                if (input) {
+                    window.location.href = `/catalogue/search/${encodeURIComponent(input)}/`;
+                }
+            }
+        </script>
+    <!-- Résultats de la recherche -->
+    {% if keyword %}
+        {% if results %}
+        <section class="page-section portfolio" id="portfolio">
+            <div class="container">
+                <h4 class="page-section-heading text-center text-uppercase text-secondary mb-0">
+                    Résultat trouvé pour "{{ keyword }}"
+                </h4>
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-tree"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <div class="row justify-content-center">
+                    {% for species in results %}
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <a href="{% url 'species_detail' species_name=species.name %}" class="portfolio-item mx-auto d-block text-center">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white">
+                                    <i class="fas fa-leaf fa-3x"></i>
+                                </div>
+                            </div>
+                            <img class="img-fluid" src="{% static species.file_fruit %}" alt="{{ species.name }}" />
+                        </a>
+                        <p class="mt-2 text-center font-weight-bold" style="font-size: 1.2rem;">{{ species.name }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        {% else %}
+        <p class="text-center">Aucun résultat trouvé pour "{{ keyword }}".</p>
+        {% endif %}
+    {% endif %}
+
+    <!-- Portfolio section inchangé -->
+    <section class="page-section portfolio" id="portfolio">
+        <!-- Votre contenu de catalogue -->
+    </section>
+
+    <!-- Footer inchangé -->
+    <footer class="footer text-center">
+        <div class="container">
+            <p>Votre footer ici.</p>
+        </div>
+    </footer>
+</body>
+</html>

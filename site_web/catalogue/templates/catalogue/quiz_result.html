@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,13 +11,19 @@
             text-align: center;
             background-color: #f9f9f9;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
             overflow: hidden;
         }
         h1 {
             color: #2e8b57;
             font-size: 2.5rem;
-            margin-top: 50px;
+            margin-bottom: 20px;
+            z-index: 1; /* S'assure que le texte est au-dessus des confettis */
         }
         h2 {
             color: #333;
@@ -24,13 +31,14 @@
             margin: 20px 0;
         }
         .result-container {
-            margin: auto;
+            width: 90%;
             max-width: 600px;
             padding: 20px;
             border: 2px solid #2e8b57;
             border-radius: 10px;
             background-color: #ffffff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1; /* S'assure que le conteneur est au-dessus des confettis */
         }
         button {
             background-color: #2e8b57;
@@ -51,7 +59,7 @@
             height: 100%;
             top: 0;
             left: 0;
-            z-index: -1;
+            z-index: 0; /* Confettis sous le texte */
             overflow: hidden;
             pointer-events: none;
         }
@@ -76,19 +84,13 @@
     </style>
 </head>
 <body>
-    <h1>Félicitations ! 🎉</h1>
-    <div class="result-container">
-        <h2>Vous avez terminé le quiz avec un score de : {{ score }}/5</h2>
-        <button onclick="window.location.href='/quiz';">Rejouer</button>
-        <button onclick="window.location.href='/';">Retour à l'accueil</button>
-    </div>
-
-    <div class="confetti">
+    <div class="confetti" id="confetti">
         <script>
-            // Générer des confettis
             document.addEventListener("DOMContentLoaded", function () {
                 const confettiCount = 200;
                 const colors = ['#FFC107', '#4CAF50', '#2196F3', '#FF5722', '#9C27B0'];
+
+                // Générer les confettis
                 for (let i = 0; i < confettiCount; i++) {
                     const confetti = document.createElement("div");
                     confetti.classList.add("confetti-piece");
@@ -98,8 +100,21 @@
                     confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
                     document.body.appendChild(confetti);
                 }
+
+                // Arrêter les confettis après 5 secondes
+                setTimeout(() => {
+                    const confetti = document.querySelectorAll('.confetti-piece');
+                    confetti.forEach(piece => piece.remove());
+                }, 5000);
             });
         </script>
+    </div>
+
+    <h1>Félicitations ! 🎉</h1>
+    <div class="result-container">
+        <h2>Vous avez terminé le quiz avec un score de : {{ score }}/5</h2>
+        <button onclick="window.location.href='/quiz';">Rejouer</button>
+        <button onclick="window.location.href='/';">Retour à l'accueil</button>
     </div>
 </body>
 </html>

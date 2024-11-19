@@ -16,7 +16,4 @@ class Species(models.Model):
 
 
     def __str__(self):
-        return f"Species(name={self.name}, name_leaf={self.name_leaf}, name_fruit={self.name_fruit}, " \
-               f"file_leaf={self.file_leaf}, file_fruit={self.file_fruit}, " \
-               f"description={self.description[:50]}..., folder_gallery={self.folder_gallery}, " \
-               f"keywords={self.keywords})"
+        return self.name

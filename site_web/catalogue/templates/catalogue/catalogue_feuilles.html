@@ -83,21 +83,23 @@
         </script>
 
         <!-- Résultats de la recherche -->
-        {% if results %}
-        <section class="results-section text-center">
-            <div class="container">
-                <h4>Résultat trouvé pour "{{ keyword }}" :</h4>
-                <ul>
-                    {% for species in results %}
-                        <li>
-                            <a href="{% url 'species_detail' species_name=species.name %}">{{ species.name }}</a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </section>
-        {% else %}
-        <p>Aucun résultat trouvé pour "{{ keyword }}".</p>
+        {% if keyword %}
+            {% if results %}
+            <section class="results-section text-center">
+                <div class="container">
+                    <h4>Résultat trouvé pour "{{ keyword }}" :</h4>
+                    <ul>
+                        {% for species in results %}
+                            <li>
+                                <a href="{% url 'species_detail' species_name=species.name %}">{{ species.name }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </section>
+            {% else %}
+            <p>Aucun résultat trouvé pour "{{ keyword }}".</p>
+            {% endif %}
         {% endif %}
         
         <!-- Portfolio Section-->

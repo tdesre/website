@@ -17,6 +17,15 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'catalogue/css/styles.css' %}" rel="stylesheet" type="text/css" />
+        <style>
+            /* Ajouter une image de fond pour la section Masthead */
+            .masthead {
+                background-image: url('{% static "catalogue/assets/img_fond_ecran.jpg" %}');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+        </style>
     </head>
     <body id="page-top">
         <!-- Navigation-->

@@ -57,7 +57,7 @@ Cette structure garantit une séparation claire entre les données, la logique e
 
 ---
 
-## **Technologies utilisées**
+## **Outils utilisées**
 - *Backend* : Python, Django
 - *Frontend* : HTML, CSS, JS
 - *Base de données* : SQLite
@@ -69,9 +69,30 @@ Cette structure garantit une séparation claire entre les données, la logique e
 1. Clonez ce dépôt :  
    ```bash
    git clone https://github.com/nom-utilisateur/catalogue-botanique.git
-   cd catalogue-botanique
+   cd site_web
 
 ---
+
+## 📚 Cas d'Usage  
+### Cas 1 : Recherche d'une feuille  
+1. L'utilisateur tape un mot-clé dans la barre de recherche.  
+2. L'application affiche les espèces correspondantes.  
+3. En cliquant sur un résultat, l'utilisateur accède à des détails sur l'espèce.  
+
+### Cas 2 : Apprentissage via un quizz  
+1. L'utilisateur lance le quizz interactif.  
+2. Il répond à des questions sur les feuilles et fruits.  
+3. Il reçoit un score et des corrections pour apprendre de manière ludique.  
+
+---
+## ✅ Tests et Couverture  
+Pour garantir la qualité et la stabilité de notre application, nous avons conçu une suite de tests avec Django et mesuré leur couverture grâce à l'outil **Coverage**.  
+
+### Commandes utilisées :  
+1. **Exécution des tests avec Coverage** :  
+   ```bash
+   coverage run --source='.' manage.py test
+   coverage report
 
 ## **Contributeurs**
 - *Amélie BELLAZI*

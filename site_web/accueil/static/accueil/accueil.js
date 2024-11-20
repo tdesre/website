@@ -48,9 +48,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 document.querySelector(".interactive-footer").addEventListener("mouseenter", function () {
-    this.style.height = "600px"; // Étendre la hauteur
+    this.style.height = "600px";
 });
 
 document.querySelector(".interactive-footer").addEventListener("mouseleave", function () {
-    this.style.height = "50px"; // Réduire la hauteur
+    this.style.height = "50px";
 });

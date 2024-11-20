@@ -4,14 +4,15 @@ Un projet académique de développement web visant à créer un catalogue intera
 
 ## **Table des matières**
 - [Introduction](#introduction)
+- [MVP et MVT dans ce projet](#MVP et MVT dans ce projet)
 - [Fonctionnalités principales](#fonctionnalités-principales)
+- [Outils utilisés](#Outils utilisés)
 - [Installation](#installation)
-- [Utilisation](#utilisation)
-- [Structure du projet](#structure-du-projet)
-- [Technologies utilisées](#technologies-utilisées)
+- [Cas d'usage](#Cas d'usage)
+- [Tests et Couverture](#Tests et couverture)
+- [Commandes utilisées](#commandes-utilisées)
 - [Contributeurs](#contributeurs)
-- [Capture d'écran](#capture-décran)
-- [Contact](#contact)
+- [Aperçu des pages](#aperçu-des-pages)
 
 ---
 
@@ -57,7 +58,7 @@ Cette structure garantit une séparation claire entre les données, la logique e
 
 ---
 
-## **Outils utilisées**
+## **Outils utilisés**
 - *Backend* : Python, Django
 - *Frontend* : HTML, CSS, JS
 - *Base de données* : SQLite
@@ -69,15 +70,14 @@ Cette structure garantit une séparation claire entre les données, la logique e
 1. Clonez ce dépôt :  
    ```bash
    git clone https://github.com/nom-utilisateur/catalogue-botanique.git
-   cd site_web
 
 ---
 
-## 📚 Cas d'Usage  
+## 📚 Cas d'usage  
 ### Cas 1 : Recherche d'une feuille  
 1. L'utilisateur tape un mot-clé dans la barre de recherche.  
 2. L'application affiche les espèces correspondantes.  
-3. En cliquant sur un résultat, l'utilisateur accède à des détails sur l'espèce.  
+3. En cliquant sur un résultat, l'utilisateur accède à des détails ainsi qu'une sélection d'images de l'espèce.  
 
 ### Cas 2 : Apprentissage via un quizz  
 1. L'utilisateur lance le quizz interactif.  

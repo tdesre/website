@@ -10,7 +10,6 @@ Un projet académique de développement web visant à créer un catalogue intera
 - [Installation](#installation)
 - [Cas d'usage](#-cas-dusage)
 - [Tests et Couverture](#-tests-et-couverture)
-- [Commandes utilisées](#commandes-utilisées)
 - [Contributeurs](#contributeurs)
 - [Aperçu des pages](#aperçu-des-pages)
 

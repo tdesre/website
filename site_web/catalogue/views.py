@@ -34,41 +34,72 @@ def catalogue_home(request):
 
 
 def quiz_view(request):
-    # Vérifier si le quiz est déjà en cours
+    # Initialiser le quiz si nécessaire
     if 'quiz_score' not in request.session:
         request.session['quiz_score'] = 0
         request.session['quiz_round'] = 1
+        request.session['asked_species'] = []  # Liste des espèces déjà posées
 
     # Fin du quiz après 5 tours
     if request.session['quiz_round'] > 5:
         score = request.session['quiz_score']
         request.session.flush()  # Réinitialise le quiz
         return render(request, 'catalogue/quiz_result.html', {'score': score})
+    
+    # S'assurer que 'asked_species' est initialisée
+    if 'asked_species' not in request.session:
+        request.session['asked_species'] = []
+    
+    # Récupérer toutes les espèces et exclure celles déjà posées
+    species_list = Species.objects.exclude(id__in=request.session['asked_species'])
+
+    if not species_list.exists():
+        # Si toutes les espèces ont été utilisées
+        score = request.session['quiz_score']
+        request.session.flush()  # Réinitialise le quiz
+        return render(request, 'catalogue/quiz_result.html', {'score': score})
 
     # Sélectionner une espèce aléatoire
-    species_list = list(Species.objects.all())
-    correct_species = random.choice(species_list)
-    # Générer des options de réponse
-    other_species = random.sample(species_list, min(3, len(species_list)))
+    correct_species = random.choice(list(species_list))
+
+    # Ajouter l'espèce posée à la liste des espèces déjà posées
+    asked_species = request.session['asked_species']
+    asked_species.append(correct_species.id)
+    request.session['asked_species'] = asked_species
+    
+    # Alterner entre feuille et fruit
+    if request.session['quiz_round'] % 2 == 1:  # Tour impair : image de feuille
+        image = f"/{correct_species.file_leaf}"
+    else:  # Tour pair : image de fruit
+        image = f"/{correct_species.file_fruit}"
+
+    # Générer des options de réponse sans inclure des doublons
+    other_species = random.sample(
+        [s for s in Species.objects.exclude(id=correct_species.id)],
+        min(3, Species.objects.count() - 1)
+    )
     options = [correct_species] + other_species
     random.shuffle(options)
-    # Afficher l'image et les options
+
+    # Préparer le contexte
     context = {
-        'image': correct_species.file_leaf,  # Change en `file_fruit` si nécessaire
+        'image': image, 
         'options': options,
         'correct_id': correct_species.id,
         'round': request.session['quiz_round'],
-        'score': request.session['quiz_score'],}
+        'score': request.session['quiz_score'],
+    }
+
     # Vérifier la réponse précédente
     if request.method == 'POST':
         selected_id = int(request.POST.get('selected_id'))
-        if selected_id == request.POST.get('correct_id'):
+        correct_id = int(request.POST.get('correct_id'))
+        if selected_id == correct_id:
             request.session['quiz_score'] += 1
         request.session['quiz_round'] += 1
-        return redirect('quiz')  # Passe au tour suivant
+        return redirect('quiz')
 
     return render(request, 'catalogue/quiz.html', context)
-
 
 def species_detail(request, species_name):
     species = get_object_or_404(Species, name=species_name)

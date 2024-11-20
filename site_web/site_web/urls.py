@@ -18,10 +18,12 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings
 from django.shortcuts import redirect
+from django.conf.urls.static import static
 
 #lien a tester pour leguidevegetal:
 # http://leguidevegetal:8000/catalogue/feuilles/
 # Toujours ajt le port :8000, indispensable sur Django
+
 
 urlpatterns = [
     path('', lambda request: redirect('accueil/')),  # Redirige vers l'accueil
@@ -31,8 +33,12 @@ urlpatterns = [
     path('description/', include('description.urls'))
 ]
 
+# Permettre de servir les images dans leurs dossiers actuels
+urlpatterns += static('/catalogue/', document_root='/Users/ameblz/coding-weeks-site-web/site_web/catalogue')
+
 if settings.DEBUG:
     import debug_toolbar
     urlpatterns = [
         path('__debug__/', include(debug_toolbar.urls)),
     ] + urlpatterns
+

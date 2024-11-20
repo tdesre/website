@@ -21,7 +21,6 @@
                 if (user_name == null) {alert("Vous avez annulé la saisie.");}
                 const password = prompt("Pour vous connecter, remplissez votre mot de passe", "Mot de passe");
                 if (password == null) {alert("Vous avez annulé la saisie.");}
-                alert("Vous avez saisi : " + user_name + password);
 
                 const userData = new FormData();
                 userData.append('username', user_name);
@@ -36,11 +35,29 @@
             }
 
             function intputRegister() {
-                const user_name = prompt("Pour vous connecter, remplissez votre identifiant :", "Identifiant");
+                const user_name = prompt("Quel identifiant donner à votre compte ?", "Identifiant");
                 if (user_name == null) {alert("Vous avez annulé la saisie.");}
-                const password = prompt("Pour vous connecter, remplissez votre mot de passe", "Mot de passe");
+                const password = prompt("Quel mot de passe donner à votre compte", "Mot de passe");
                 if (password == null) {alert("Vous avez annulé la saisie.");}
-                alert("Vous avez saisi : " + user_name + password);
+
+                let password_bis;
+                do {
+                    password_bis = prompt("Réinsérez votre mot de passe", "Mot de passe");
+                    if (password !== password_bis) {
+                        alert("Mauvais mot de passe.");
+                    }
+                } while (password !== password_bis);
+
+                const userData = new FormData();
+                userData.append('username', user_name);
+                userData.append('password', password);
+                fetch('register/', {method : 'POST', body: userData})
+
+                .then(response => response.text())
+                .then(data => {
+                    if (data === "success") {alert('Nouveau compte enregistré !');}
+                    else {alert('Erreur'+data);}
+                })
             }
         </script>
         <button onclick="inputConnect()">Se connecter</button>

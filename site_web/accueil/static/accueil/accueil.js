@@ -3,8 +3,12 @@ document.addEventListener("DOMContentLoaded", function () {
         "Les feuilles de bambou sont utilisées pour fabriquer du papier depuis des siècles.",
         "Les feuilles de chêne peuvent vivre jusqu'à 1 000 ans !",
         "Le plus vieil arbre du monde, un pin Bristlecone, est âgé de plus de 4 800 ans.",
-        "Les fruits de l’arbre Baobab sont riches en vitamine C, contenant six fois plus que les oranges."
+        "Les fruits de l’arbre Baobab sont riches en vitamine C, contenant six fois plus que les oranges.",
+        "Le séquoia géant peut atteindre une hauteur de plus de 110 mètres, soit presque la taille d'un immeuble de 40 étages.",
+        "Certaines feuilles d'eucalyptus contiennent des huiles essentielles utilisées en médecine et en parfumerie.",
+        "Les feuilles de l'arbre à thé sont à l'origine de l'une des boissons les plus consommées au monde : le thé."
     ];
+    
 
     let currentIndex = 0; // Index de la citation actuelle
     const quoteElement = document.getElementById("random-quote");

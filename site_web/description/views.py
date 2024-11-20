@@ -23,7 +23,7 @@ def description(request, id):
     except FileNotFoundError:
         species.description = "Fichier non trouvé."
 
-    context= {**model_to_dict(species), 'images_path': images_path}
+    context= {**model_to_dict(species), 'images_path': images_path, 'is_red': request.user.is_authenticated}
     return render(request, 'description/description.html', context)
 
 def error(request, text):

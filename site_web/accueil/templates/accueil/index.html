@@ -14,6 +14,37 @@
             <img src="{% static 'accueil/images/logo.png' %}" alt="Logo du site">
         </div>
         <h1 class="site-name">Catalogue Botanique</h1>
+        <script>
+            // Script JavaScript ici
+            function inputConnect() {
+                const user_name = prompt("Pour vous connecter, remplissez votre identifiant :", "Identifiant");
+                if (user_name == null) {alert("Vous avez annulé la saisie.");}
+                const password = prompt("Pour vous connecter, remplissez votre mot de passe", "Mot de passe");
+                if (password == null) {alert("Vous avez annulé la saisie.");}
+                alert("Vous avez saisi : " + user_name + password);
+
+                const userData = new FormData();
+                userData.append('username', user_name);
+                userData.append('password', password);
+                fetch('login/', {method : 'POST', body: userData})
+
+                .then(response => response.text())
+                .then(data => {
+                    if (data === "success") {alert('Connecté avec succès !');}
+                    else {alert('Identifiants incorrects');}
+                })
+            }
+
+            function intputRegister() {
+                const user_name = prompt("Pour vous connecter, remplissez votre identifiant :", "Identifiant");
+                if (user_name == null) {alert("Vous avez annulé la saisie.");}
+                const password = prompt("Pour vous connecter, remplissez votre mot de passe", "Mot de passe");
+                if (password == null) {alert("Vous avez annulé la saisie.");}
+                alert("Vous avez saisi : " + user_name + password);
+            }
+        </script>
+        <button onclick="inputConnect()">Se connecter</button>
+        <button onclick="intputRegister()">S'inscrire</button>
     </header>
     
     <!-- MARCHE PAS DES MASSES...

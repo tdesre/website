@@ -24,6 +24,7 @@
 							<li><a href="/catalogue/fruits" class="icon solid fa-lemon"><span class="label">Vers catalogue_fruits </span></a></li>
 							<li><a href="/description/{{ id|add:-1 }}" class="icon solid fa-long-arrow-alt-left"><span class="label">Espèce précédente</span></a></li>
 							<li><a href="/description/{{ id|add:1 }}" class="icon solid fa-long-arrow-alt-right"><span class="label">Espèce suivante</span></a></li>
+							<li><a href="/description/{{ id|add:1 }}" style="color: {% if is_red %} red {% endif %};" class="icon solid fa-heart"><span class="label">Ajouter au catalogue</span></a></li>
 						</ul>
 					</header>
 

@@ -1,21 +1,21 @@
-# **Catalogue Botanique**
+# **🌱 Catalogue Botanique**
 
 Un projet académique de développement web visant à créer un catalogue interactif de feuilles et fruits.
 
-## **Table des matières**
-- [Introduction](#introduction)
-- [MVP et MVT dans ce projet](#mvp-et-mvt-dans-ce-projet)
-- [Fonctionnalités principales](#fonctionnalités-principales)
-- [Outils utilisés](#outils-utilisés)
-- [Installation](#installation)
-- [Cas d'usage](#-cas-dusage)
-- [Tests et Couverture](#-tests-et-couverture)
-- [Contributeurs](#contributeurs)
-- [Aperçu des pages](#aperçu-des-pages)
+## **📖 Table des matières**
+- [🌟 Introduction](#-introduction)
+- [🔍 MVP et MVT dans ce projet](#-mvp-et-mvt-dans-ce-projet)
+- [✨ Fonctionnalités principales](#-fonctionnalités-principales)
+- [🛠️ Outils utilisés](#️-outils-utilisés)
+- [⚙️ Installation](#️-installation)
+- [📚 Cas d'usage](#-cas-dusage)
+- [✅ Tests et Couverture](#-tests-et-couverture)
+- [🤝 Contributeurs](#-contributeurs)
+- [🖼️ Aperçu des pages](#️-aperçu-des-pages)
 
 ---
 
-## **Introduction**
+## **🌟 Introduction**
 Le projet *Catalogue Botanique* a été développé dans le cadre d'un projet académique pour démontrer nos compétences en programmation web.  
 Il permet de :
 - Explorer un large catalogue de feuilles et de fruits.
@@ -24,7 +24,7 @@ Il permet de :
 
 ---
 
-## **MVP et MVT dans ce projet**
+## **🔍 MVP et MVT dans ce projet**
 
 ### **MVP (Minimum Viable Product)**
 Le concept de **MVP** repose sur la création rapide d'une version fonctionnelle et minimale d'un produit pour tester ses fonctionnalités essentielles.  
@@ -41,10 +41,9 @@ Le projet suit l'architecture **MVT**, typique de Django :
 
 Cette structure garantit une séparation claire entre les données, la logique et l'interface utilisateur, rendant le code plus modulaire et maintenable.
 
-
 ---
 
-## **Fonctionnalités principales**
+## **✨ Fonctionnalités principales**
 - **Page d'accueil dynamique** : Affichage de citations changeantes toutes les 10 secondes avec une animation fluide.
 
 - **Catalogue interactif** : Navigation dans une liste de feuilles et fruits avec des informations détaillées sur chaque élément. Bandeau d'affichage permettant une navigation fluide entre les différentes pages du site web.
@@ -57,20 +56,19 @@ Cette structure garantit une séparation claire entre les données, la logique e
 
 ---
 
-## **Outils utilisés**
+## **🛠️ Outils utilisés**
 - *Backend* : Python, Django
 - *Frontend* : HTML, CSS, JS
 - *Base de données* : SQLite
-- *AUTRE* : Bootstrap pour une partie des design
+- *AUTRE* : Bootstrap pour une partie des designs
 
 ---
 
-## **Installation**
+## **⚙️ Installation**
 1. Clonez ce dépôt :  
    ```bash
    git clone https://github.com/nom-utilisateur/catalogue-botanique.git
 
----
 
 ## 📚 Cas d'usage  
 ### Cas 1 : Recherche d'une feuille  
@@ -93,7 +91,7 @@ Pour garantir la qualité et la stabilité de notre application, nous avons con�
    coverage run --source='.' manage.py test
    coverage report
 
-## **Contributeurs**
+## **🤝 Contributeurs**
 - *Amélie BELLAZI*
 - *Hortense CLAUDON*
 - *Tom CONNERY*
@@ -103,7 +101,7 @@ Pour garantir la qualité et la stabilité de notre application, nous avons con�
 
 ---
 
-## Aperçu des pages
+## 🖼️ Aperçu des pages
 
 ### Page d'accueil
 <img src="https://gitlab-cw4.centralesupelec.fr/theophile.desre/coding-weeks-site-web/-/raw/Ilan_fix_accueil_wed/img/Capture_d_%C3%A9cran__1_.png" alt="Page d'accueil" width="800">

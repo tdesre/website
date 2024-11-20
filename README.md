@@ -4,12 +4,12 @@ Un projet académique de développement web visant à créer un catalogue intera
 
 ## **Table des matières**
 - [Introduction](#introduction)
-- [MVP et MVT dans ce projet](#MVP et MVT dans ce projet)
+- [MVP et MVT dans ce projet](#mvp-et-mvt-dans-ce-projet)
 - [Fonctionnalités principales](#fonctionnalités-principales)
-- [Outils utilisés](#Outils utilisés)
+- [Outils utilisés](#outils-utilisés)
 - [Installation](#installation)
-- [Cas d'usage](#Cas d'usage)
-- [Tests et Couverture](#Tests et couverture)
+- [Cas d'usage](#-cas-dusage)
+- [Tests et Couverture](#-tests-et-couverture)
 - [Commandes utilisées](#commandes-utilisées)
 - [Contributeurs](#contributeurs)
 - [Aperçu des pages](#aperçu-des-pages)

@@ -69,7 +69,7 @@ Cette structure garantit une séparation claire entre les données, la logique e
 1. Clonez ce dépôt :  
    ```bash
    git clone https://github.com/nom-utilisateur/catalogue-botanique.git
-   cd catalogue-botanique
+   cd site_web
 
 ---
 
@@ -80,3 +80,11 @@ Cette structure garantit une séparation claire entre les données, la logique e
 - *Théophile DESRE*
 - *Philippine FROUX*
 - *Ilan TARABULA*
+
+---
+
+![cover](https://gitlab-cw4.centralesupelec.fr/theophile.desre/coding-weeks-site-web/-/raw/Ilan_fix_accueil_wed/img/Capture_d_%C3%A9cran__1_.png)
+
+![cover](https://gitlab-cw4.centralesupelec.fr/theophile.desre/coding-weeks-site-web/-/raw/Ilan_fix_accueil_wed/img/Capture_d_%C3%A9cran__6_.png)
+
+![cover](https://gitlab-cw4.centralesupelec.fr/theophile.desre/coding-weeks-site-web/-/raw/Ilan_fix_accueil_wed/img/Capture_d_%C3%A9cran__9_.png)

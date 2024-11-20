@@ -43,7 +43,11 @@ def quiz_view(request):
         score = request.session['quiz_score']
         request.session.flush()  # Réinitialise le quiz
         return render(request, 'catalogue/quiz_result.html', {'score': score})
-
+    
+    # S'assurer que 'asked_species' est initialisée
+    if 'asked_species' not in request.session:
+        request.session['asked_species'] = []
+    
     # Récupérer toutes les espèces et exclure celles déjà posées
     species_list = Species.objects.exclude(id__in=request.session['asked_species'])
 
@@ -60,6 +64,12 @@ def quiz_view(request):
     asked_species = request.session['asked_species']
     asked_species.append(correct_species.id)
     request.session['asked_species'] = asked_species
+    
+    # Alterner entre feuille et fruit
+    if request.session['quiz_round'] % 2 == 1:  # Tour impair : image de feuille
+        image = f"/{correct_species.file_leaf}"
+    else:  # Tour pair : image de fruit
+        image = f"/{correct_species.file_fruit}"
 
     # Générer des options de réponse sans inclure des doublons
     other_species = random.sample(
@@ -71,7 +81,7 @@ def quiz_view(request):
 
     # Préparer le contexte
     context = {
-        'image': f"/{correct_species.file_leaf}",  # Convertir les backslashes
+        'image': image, 
         'options': options,
         'correct_id': correct_species.id,
         'round': request.session['quiz_round'],

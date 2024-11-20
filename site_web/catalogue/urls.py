@@ -1,7 +1,6 @@
 from django.urls import path
 from . import views
 
-
 urlpatterns = [
     path('', views.catalogue_home, name='catalogue_home'),
     path('feuilles/', views.catalogue_feuilles, name='catalogue_feuilles'),

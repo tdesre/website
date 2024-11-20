@@ -57,10 +57,10 @@ Cette structure garantit une séparation claire entre les données, la logique e
 ---
 
 ## **🛠️ Outils utilisés**
-- *Backend* : Python, Django
+- *Backend* : [Python](https://www.python.org/doc/), [Django](https://www.djangoproject.com/)
 - *Frontend* : HTML, CSS, JS
-- *Base de données* : SQLite
-- *AUTRE* : Bootstrap pour une partie des designs
+- *Base de données* : [SQLite](https://www.sqlite.org/)
+- *AUTRE* : [Bootstrap](https://getbootstrap.com/) pour une partie des designs
 
 ---
 

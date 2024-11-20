@@ -11,11 +11,23 @@
 	</head>
 	<body class="is-preload-0 is-preload-1 is-preload-2">
 
+	<script>
+	// Appelle la view update_favorite
+		function update_favorite() {
+			const idData = new FormData();
+			idData.append('id', document.getElementById('update_favorite').getAttribute('data-id'));
+			fetch('update_favorite/', {method : 'POST', body: idData})
+			.then(response => {window.location.reload();})
+		}
+	</script>
+
+
 		<!-- Main -->
 			<div id="main">
 
 				<!-- Header -->
 					<header id="header">
+			
 						<h1>{{name}}</h1>
 						<p>créer localisation</p>
 						<ul class="icons">
@@ -24,7 +36,7 @@
 							<li><a href="/catalogue/fruits" class="icon solid fa-lemon"><span class="label">Vers catalogue_fruits </span></a></li>
 							<li><a href="/description/{{ id|add:-1 }}" class="icon solid fa-long-arrow-alt-left"><span class="label">Espèce précédente</span></a></li>
 							<li><a href="/description/{{ id|add:1 }}" class="icon solid fa-long-arrow-alt-right"><span class="label">Espèce suivante</span></a></li>
-							<li><a href="/description/{{ id|add:1 }}" style="color: {% if is_red %} red {% endif %};" class="icon solid fa-heart"><span class="label">Ajouter au catalogue</span></a></li>
+							<li><a id="update_favorite" data-id="{{ id }}" onclick="update_favorite()" style="color: {% if is_red %} red {% endif %};" class="icon solid fa-heart"><span class="label">Ajouter au catalogue</span></a></li>
 						</ul>
 					</header>
 

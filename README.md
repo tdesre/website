@@ -67,7 +67,7 @@ Cette structure garantit une séparation claire entre les données, la logique e
 ## **⚙️ Installation**
 1. Clonez ce dépôt :  
    ```bash
-   git clone https://github.com/nom-utilisateur/catalogue-botanique.git
+   git clone https://gitlab-cw4.centralesupelec.fr/theophile.desre/coding-weeks-site-web.git
 
 
 ## 📚 Cas d'usage  

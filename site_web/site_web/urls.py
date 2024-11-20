@@ -33,8 +33,8 @@ urlpatterns = [
     path('description/', include('description.urls'))
 ]
 
-# Permettre de servir les images dans leurs dossiers actuels
-urlpatterns += static('/catalogue/', document_root='/Users/ameblz/coding-weeks-site-web/site_web/catalogue')
+# Ajouter les répertoires des images comme fichiers statiques
+urlpatterns += static('/catalogue/', document_root=settings.BASE_DIR / 'catalogue')
 
 if settings.DEBUG:
     import debug_toolbar

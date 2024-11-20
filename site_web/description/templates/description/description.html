@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>{{name}}</title>
+		<title>{{ name }}</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="{% static 'description/assets/css/main.css' %}" />
@@ -12,53 +12,52 @@
 	<body class="is-preload-0 is-preload-1 is-preload-2">
 
 		<!-- Main -->
-			<div id="main">
+		<div id="main">
 
-				<!-- Header -->
-				<header id="header">
-					<h1>{{name}}</h1>
-					<p>créer localisation</p>
-					<ul class="icons">
-						<li><a href="/accueil" class="icon solid fa-home"><span class="label">Accueil</span></a></li>
-						<li><a href="/catalogue/feuilles/" class="icon solid fa-leaf"><span class="label">Vers catalogue_feuilles </span></a></li>
-						<li><a href="/catalogue/fruits/" class="icon solid fa-lemon"><span class="label">Vers catalogue_fruits </span></a></li>
-						<li><a href="/description/{{ id|add:-1 }}" class="icon solid fa-long-arrow-alt-left"><span class="label">Espèce précédente</span></a></li>
-						<li><a href="/description/{{ id|add:1 }}" class="icon solid fa-long-arrow-alt-right"><span class="label">Espèce suivante</span></a></li>
-					</ul>
-				</header>
+			<!-- Header -->
+			<header id="header">
+				<h1>{{ name }}</h1>
+				<p>créer localisation</p>
+				<ul class="icons">
+					<li><a href="/accueil" class="icon solid fa-home"><span class="label">Accueil</span></a></li>
+					<li><a href="/catalogue/feuilles/" class="icon solid fa-leaf"><span class="label">Vers catalogue_feuilles</span></a></li>
+					<li><a href="/catalogue/fruits/" class="icon solid fa-lemon"><span class="label">Vers catalogue_fruits</span></a></li>
+					<li><a href="/description/{{ id|add:-1 }}" class="icon solid fa-long-arrow-alt-left"><span class="label">Espèce précédente</span></a></li>
+					<li><a href="/description/{{ id|add:1 }}" class="icon solid fa-long-arrow-alt-right"><span class="label">Espèce suivante</span></a></li>
+				</ul>
+			</header>
 
-				<!-- Thumbnail -->
-					<section id="thumbnails">
-						{% for image in images_path %}
-						<article>
-							{% with full_path=image|stringformat:"s" %}
-								<a class="thumbnail" href="{% static full_path %}" data-position="left center" >
-									<img src="{% static full_path %}" alt="image" />
-								</a>
-							{% endwith %}
-							<h2>{{description}}</h2>
-						</article>
-						{% endfor %}
-					</section>
+			<!-- Thumbnail -->
+			<section id="thumbnails">
+				{% if images_path %}
+					{% for image in images_path %}
+					<article>
+						<a class="thumbnail" href="{{ image }}" data-position="left center">
+							<img src="{{ image }}" alt="Image de la galerie" />
+						</a>
+						<h2>{{ description }}</h2>
+					</article>
+					{% endfor %}
+				{% else %}
+					<p>Aucune image trouvée pour cette espèce.</p>
+				{% endif %}
+			</section>
 
-					<header id="header">
-						<p>mots clés : {{keywords}}</p>
-					</header>
+			<!-- Footer -->
+			<footer id="footer">
+				<p>Mots clés : {{ keywords }}</p>
+				<ul class="copyright">
+					<li>&copy; TATIPH.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a>.</li>
+				</ul>
+			</footer>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<ul class="copyright">
-							<li>&copy; TATIPH.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a>.</li>
-						</ul>
-					</footer>
-
-			</div>
+		</div>
 
 		<!-- Scripts -->
-			<script src="{% static 'description/assets/js/jquery.min.js' %}"></script>
-			<script src="{% static 'description/assets/js/browser.min.js' %}"></script>
-			<script src="{% static 'description/assets/js/breakpoints.min.js' %}"></script>
-			<script src="{% static 'description/assets/js/main.js' %}"></script>
+		<script src="{% static 'description/assets/js/jquery.min.js' %}"></script>
+		<script src="{% static 'description/assets/js/browser.min.js' %}"></script>
+		<script src="{% static 'description/assets/js/breakpoints.min.js' %}"></script>
+		<script src="{% static 'description/assets/js/main.js' %}"></script>
 
 	</body>
 </html>

@@ -107,10 +107,10 @@ Pour garantir la qualité et la stabilité de notre application, nous avons con�
 ## Aperçu des pages
 
 ### Page d'accueil
-<img src="https://gitlab-cw4.centralesupelec.fr/theophile.desre/coding-weeks-site-web/-/raw/Ilan_fix_accueil_wed/img/Capture_d_%C3%A9cran__1_.png" alt="Page d'accueil" width="400">
+<img src="https://gitlab-cw4.centralesupelec.fr/theophile.desre/coding-weeks-site-web/-/raw/Ilan_fix_accueil_wed/img/Capture_d_%C3%A9cran__1_.png" alt="Page d'accueil" width="800">
 
 ### Page de catalogue
-<img src="https://gitlab-cw4.centralesupelec.fr/theophile.desre/coding-weeks-site-web/-/raw/Ilan_fix_accueil_wed/img/Capture_d_%C3%A9cran__6_.png" alt="Page de catalogue" width="400">
+<img src="https://gitlab-cw4.centralesupelec.fr/theophile.desre/coding-weeks-site-web/-/raw/Ilan_fix_accueil_wed/img/Capture_d_%C3%A9cran__6_.png" alt="Page de catalogue" width="800">
 
 ### Détails des feuilles/fruits
-<img src="https://gitlab-cw4.centralesupelec.fr/theophile.desre/coding-weeks-site-web/-/raw/Ilan_fix_accueil_wed/img/Capture_d_%C3%A9cran__9_.png" alt="Détails" width="400">
+<img src="https://gitlab-cw4.centralesupelec.fr/theophile.desre/coding-weeks-site-web/-/raw/Ilan_fix_accueil_wed/img/Capture_d_%C3%A9cran__9_.png" alt="Détails" width="800">

@@ -65,11 +65,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const images = Array.from(carousel.children);
     const totalImages = images.length;
 
-    const speed = 2; // Vitesse du défilement (en pixels)
+    const speed = 1.3; // Vitesse du défilement (en pixels)
 
     function setInitialPositions() {
         const screenWidth = window.innerWidth; // Largeur de l'écran
-        const spacing = screenWidth / totalImages; // Espacement entre les images
+        const spacing = screenWidth / totalImages + screenWidth/80; // Espacement entre les images
 
         // Positionne chaque image uniformément à partir du bord droit de l'écran
         images.forEach((img, index) => {

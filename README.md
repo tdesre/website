@@ -48,11 +48,15 @@ Cette structure garantit une séparation claire entre les données, la logique e
 
 - **Catalogue interactif** : Navigation dans une liste de feuilles et fruits avec des informations détaillées sur chaque élément. Bandeau d'affichage permettant une navigation fluide entre les différentes pages du site web.
 
+- **Descriptions détaillées** : Chaque espèce de feuille ou de fruit est accompagnée d'une description complète pour enrichir vos connaissances.
+
+- **Quizz éducatif** : Une fonctionnalité ludique pour tester ses connaissances sur les différentes feuilles et fruits, avec un système de score et des images interactives.
+
 - **Section "À propos" interactive** : Accessible depuis un footer extensible, contenant des informations sur le projet et des contacts.
 
-- **Conception responsive** : Compatible sur tous types d'ordinateurs.
-
 - **Design élégant et intuitif** : Affichage dynamique et interactif des éléments du catalogue.
+
+---
 
 ---
 

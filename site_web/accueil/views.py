@@ -16,7 +16,7 @@ def Connect(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
 
-        user = User.objects.get(username=username)
+        user = User.objects.get(username=username) #Vérifier si l'identifiant et le mot de passe sont corrects
         if user.check_password(password):
             login(request, user)
             return HttpResponse("success")
@@ -35,7 +35,7 @@ def Register(request):
             return HttpResponse("Username déjà pris")
         else:
             try : 
-                user = User.objects.create_user(username=username, password=password)
+                user = User.objects.create_user(username=username, password=password) # Créé un nouvel utilisateur
                 return HttpResponse("success")
             except Exception as e:
                 return HttpResponse("error"+str(e))

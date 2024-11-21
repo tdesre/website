@@ -5,25 +5,25 @@ from .models import Species
 class MyPageTests(TestCase):
     
     def test_catalogue_feuilles(self):
-        response = self.client.get(reverse('catalogue_feuilles'))
-        self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "Feuilles")
+        response = self.client.get(reverse('catalogue_feuilles')) #simule une requete GET vers l'url liée à la vue catalogue_feuille
+        self.assertEqual(response.status_code, 200) # Vérifie que la page a un code 200
+        self.assertContains(response, "Feuilles") # vérifie que la réponse contient Feuilles
     
     def test_catalogue_fruits(self):
         response = self.client.get(reverse('catalogue_fruits'))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "Fruits")  # Remplacez par un contenu spécifique à cette page.
+        self.assertContains(response, "Fruits")  # vérifie que la réponse contient Fruits
     
     def test_species_search_view(self):
-        response = self.client.get(reverse('species_search', args=["mot-clé1"]))
+        response = self.client.get(reverse('species_search', args=["mot-clé1"])) #simule un requete de type get à l'url de la vue associée à search_species avec mot-clé1 en argument
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'catalogue/search_results.html')
-        self.assertEqual(len(response.context['results']), 0)
+        self.assertTemplateUsed(response, 'catalogue/search_results.html') #Vérifie que le template a vien été utilisé
+        self.assertEqual(len(response.context['results']), 0) # Vérifie que le nombre de résultats associés à la recherche du mot clé est 0
          
 
     # Test de contenu dynamique
     def test_page_contains_dynamic_content(self):
-        response = self.client.get(reverse('accueil'))
+        response = self.client.get(reverse('accueil')) 
         self.assertContains(response, 'accueil/accueil.css')  # Vérifie la présence d'un contenu dynamique
         self.assertContains(response, '/static/accueil/images/logo.png')
 
@@ -55,19 +55,13 @@ class MyPageTests(TestCase):
 
 
     def test_quiz_start(self):
-        """
-        Tester si le quiz démarre correctement.
-        """
+        #Tester si le quiz démarre correctement.
         response = self.client.get(reverse('quiz'))
         self.assertEqual(response.status_code, 200)
-        #self.assertContains(response, "Question 1")
-        #self.assertIn('image', response.context)
-        #self.assertIn('options', response.context)
+
 
     def test_quiz_end(self):
-        """
-        Tester la fin du quiz après 5 questions.
-        """
+        #Tester la fin du quiz après 5 questions.
         session = self.client.session
         session['quiz_round'] = 6  # Simule une session au-delà du dernier round
         session['quiz_score'] = 4

@@ -7,29 +7,32 @@ from django.db.models import Avg
 import random
 
 
-
+# affichage du catalogue des feuilles
 def catalogue_feuilles(request):
     feuilles = Species.objects.exclude(file_leaf="")
     images = [{'type': 'Feuilles', 'path': feuille.file_leaf, 'id': feuille.id, 'portfolio_id':'portfolioModal'+str(feuille.id)} for feuille in feuilles]
     return render(request, 'catalogue/catalogue_feuilles.html', {'images' : images})
     
-
+# affichage du catalogue des fruits
 def catalogue_fruits(request):
     fruits = Species.objects.exclude(file_leaf="")
     images = [{'type': 'Fruits', 'path': fruit.file_fruit, 'id': fruit.id, 'portfolio_id':'portfolioModal'+str(fruit.id)} for fruit in fruits]
     return render(request, 'catalogue/catalogue_fruits.html', {'images' : images})
 
+# fonction de recherche
 def search_species(keyword):
-    query = Q(keywords__icontains=keyword) | Q(name_leaf__icontains=keyword) | Q(name_fruit__icontains=keyword)
-    results = Species.objects.filter(query)  # Renvoie des objets Species
+    query = Q(keywords__icontains=keyword) | Q(name_leaf__icontains=keyword) | Q(name_fruit__icontains=keyword) # fait la recherche dans les mots clés, le nom de la feuille et le nom du fruit
+    results = Species.objects.filter(query)  # utilise .filter pour chercher les espèces qui correspondent à la recherche
     return results
 
+#fonction pour générer la vue de recherche
 def species_search_view(request, text):
     keyword = text
     results = search_species(keyword)
-    print("Résultats trouvés :", results)  # Vérifiez les données retournées
+    print("Résultats trouvés :", results)  
     return render(request, 'catalogue/search_results.html', {'results': results, 'keyword': keyword})
 
+# fonction pour générer le quizz
 def quiz_view(request):
     # Initialiser le quiz si nécessaire
     if 'quiz_score' not in request.session:

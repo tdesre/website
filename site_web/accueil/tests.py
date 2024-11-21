@@ -8,17 +8,17 @@ class MyPageTests(TestCase):
     
     # Test de la réponse HTTP
     def test_page_status_code(self):
-        response = self.client.get(reverse('accueil'))  # Remplacez par le nom de votre vue
+        response = self.client.get(reverse('accueil'))  
         self.assertEqual(response.status_code, 200)  # Vérifie le code de statut HTTP (200 OK)
 
     # Test de la présence d'un élément HTML
     def test_page_contains_specific_element(self):
         response = self.client.get(reverse('accueil'))
-        self.assertContains(response, '<title>Accueil</title>\n')  # Vérifie qu'un titre est présent
-        self.assertContains(response, '<h1>Bienvenue sur notre site</h1>')
+        self.assertContains(response, '<title>Accueil</title>\n')  # Vérifie que le titre accueil est présent
+        self.assertContains(response, '<h1>Bienvenue sur notre site</h1>') # Vérifie que le titre Bienvenue sur notre site est présent
         
 
-    # Test de contenu dynamique
+    # Test de contenu dynamique (modifié ou généré lors des interactions avec l'utilisateur)
     def test_page_contains_dynamic_content(self):
         response = self.client.get(reverse('accueil'))
         self.assertContains(response, 'accueil/accueil.css')  # Vérifie la présence d'un contenu dynamique
@@ -26,16 +26,13 @@ class MyPageTests(TestCase):
     def test_bouton_feuilles_lien(self):
         # Accède à la page d'accueil
         response = self.client.get(reverse('accueil'))
-        # Vérifie que l'URL /catalogue/feuilles/ est présente dans le HTML
-        self.assertContains(response, 'href="/catalogue/feuilles/"')
+        self.assertContains(response, 'href="/catalogue/feuilles/"') #Vérifie que la réponse contient un lien menant vers href="/catalogue/feuilles/"
 
     def test_navigation_vers_catalogue_feuilles(self):
         # Simule un accès direct à la page /catalogue/feuilles/
         url_feuilles = reverse('catalogue_feuilles')  # Génère l'URL cible
-        response = self.client.get(url_feuilles)
-
-        # Vérifie que la page de destination retourne un code 200
-        self.assertEqual(response.status_code, 200)
+        response = self.client.get(url_feuilles) #simulation d'une requête HTTP faite par un utilisateur
+        self.assertEqual(response.status_code, 200) # Vérifie que la page de destination retourne un code 200
 
     def test_bouton_fruits_lien(self):
         # Accède à la page d'accueil
@@ -57,7 +54,7 @@ class MyPageTests(TestCase):
     def test_connect_view_success(self):
         """Test de connexion réussie"""
         # Simuler un POST avec des données de connexion valides
-        response = self.client.post(reverse('login'), {'username': 'testuser', 'password': 'testpassword'})
+        response = self.client.post(reverse('login'), {'username': 'testuser', 'password': 'testpassword'}) #génère l'url de la vue de login et rempli les champs de requête
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "success")  # Vérifie que la réponse contient "success" en cas de connexion réussie
 

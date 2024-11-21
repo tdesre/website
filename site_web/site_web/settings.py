@@ -128,7 +128,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-
+# Ajouter d'autres racines au répertoire "static" lorsqu'on y accède par Django en html
 STATIC_URL = "static/"
 STATICFILES_DIRS = [
     BASE_DIR,
@@ -142,5 +142,6 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+# Les cookies permettent de garder la connexion active sur tout le site (peu importe l'URL si même domaine)
 SESSION_COOKIE_AGE = 250000
-SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True # Réinitialise la connexion après fermeture du navigateur

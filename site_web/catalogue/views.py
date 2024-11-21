@@ -5,6 +5,8 @@ from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import render, redirect
 import random
+from django.db.models import Avg
+
 
 def catalogue_feuilles(request):
     feuilles = Species.objects.exclude(file_leaf="")
@@ -27,11 +29,6 @@ def species_search_view(request, text):
     results = search_species(keyword)
     print("Résultats trouvés :", results)  # Vérifiez les données retournées
     return render(request, 'catalogue/search_results.html', {'results': results, 'keyword': keyword})
-
-def catalogue_home(request):
-    species_list = Species.objects.annotate(average_score=Avg('ratings__score'))  # Ajoute la moyenne des notes
-    return render(request, 'catalogue/catalogue_home.html', {'species_list': species_list})
-
 
 def quiz_view(request):
     # Initialiser le quiz si nécessaire

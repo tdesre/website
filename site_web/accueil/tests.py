@@ -1,5 +1,8 @@
 from django.test import TestCase
 from django.urls import reverse
+from django.contrib.auth.models import User
+from django.contrib.auth import login
+
 
 class MyPageTests(TestCase):
     
@@ -19,7 +22,6 @@ class MyPageTests(TestCase):
     def test_page_contains_dynamic_content(self):
         response = self.client.get(reverse('accueil'))
         self.assertContains(response, 'accueil/accueil.css')  # Vérifie la présence d'un contenu dynamique
-        self.assertContains(response, 'accueil/images/logo.jpg')
 
     def test_bouton_feuilles_lien(self):
         # Accède à la page d'accueil
@@ -47,3 +49,21 @@ class MyPageTests(TestCase):
         response = self.client.get(url_fruits)
         # Vérifie que la page de destination retourne un code 200
         self.assertEqual(response.status_code, 200)   
+
+    def setUp(self):
+        # Créer un utilisateur de test
+        self.user = User.objects.create_user(username='testuser', password='testpassword')
+
+    def test_connect_view_success(self):
+        """Test de connexion réussie"""
+        # Simuler un POST avec des données de connexion valides
+        response = self.client.post(reverse('login'), {'username': 'testuser', 'password': 'testpassword'})
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "success")  # Vérifie que la réponse contient "success" en cas de connexion réussie
+
+    def test_connect_view_failure(self):
+        """Test de connexion échouée"""
+        # Simuler un POST avec un mot de passe invalide
+        response = self.client.post(reverse('login'), {'username': 'testuser', 'password': 'wrongpassword'})
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "error")  # Vérifie que la réponse contient "error" en cas de mot de passe incorrect

@@ -8,6 +8,7 @@ from pathlib import Path
 from django.conf import settings
 from unicodedata import normalize
 import os
+
 def normalize_name(input_str):
     """Supprime les accents et remplace les espaces par des underscores."""
     # Supprimer les accents

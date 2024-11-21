@@ -7,13 +7,17 @@
     <title>Accueil</title>
     <link rel="stylesheet" type="text/css" href="{% static 'accueil/accueil.css' %}">
     <link rel="icon" type="image/png" href="{% static 'accueil/images/logo.png' %}">
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Inclure Bootstrap (si vous ne l'avez pas déjà fait) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <header class="site-header">
+<body>    
+    <header class="site-header navbar navbar-expand-lg navbar-light d-flex align-items-center justify-content-between">
         <div class="logo">
             <img src="{% static 'accueil/images/logo.png' %}" alt="Logo du site">
         </div>
-        <h1 class="site-name">Catalogue Botanique</h1>
+        <h1 class="site-name text-center mb-0 flex-grow-1">LE GUIDE VÉGÉTAL</h1>
         <script>
             // Script JavaScript ici
             function inputConnect() {
@@ -34,7 +38,7 @@
                 })
             }
 
-            function intputRegister() {
+            function inputRegister() {
                 const user_name = prompt("Quel identifiant donner à votre compte ?", "Identifiant");
                 if (user_name == null) {alert("Vous avez annulé la saisie.");}
                 const password = prompt("Quel mot de passe donner à votre compte", "Mot de passe");
@@ -60,10 +64,22 @@
                 })
             }
         </script>
-        <button onclick="inputConnect()">Se connecter</button>
-        <button onclick="intputRegister()">S'inscrire</button>
+        <div class="container-fluid">
+            <ul class="navbar-nav ms-auto d-flex">
+                <li class="nav-item mx-0 mx-lg-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded" onclick="inputRegister()"><i class="fas fa-pen-to-square fa-2x"></i></a>
+                </li>
+                <li class="nav-item mx-0 mx-lg-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded" onclick="inputConnect()"><i class="fas fa-user fa-2x"></i></a>
+                </li>
+                <li class="nav-item mx-0 mx-lg-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'quiz' %}"><i class="fas fa-lightbulb fa-2x"></i></a>
+                </li>
+            </ul>
+        </div>
+
     </header>
-    
+
     <!-- MARCHE PAS DES MASSES...
     <div class="carousel">
         <img src="{% static 'accueil/images/cerises.jpg' %}" alt="Image 1">
@@ -120,8 +136,8 @@
         <div class="footer-hidden">
             <p>Ceci est un projet académique visant à démontrer des compétences en développement web.</p>
             <h2>Contacts :</h2>
-            <p>Email : projet_catalogue_botanique@gmail.com</p>
-            <p>Téléphone portable : +33 1 23 45 67 89</p>
+            <p><i class="fas fa-envelope"></i>projet_catalogue_botanique@gmail.com</p>
+            <p><i class="fas fa-phone"></i>+33 1 23 45 67 89</p>
         </div>
     </footer>
     

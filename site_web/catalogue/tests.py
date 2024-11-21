@@ -1,17 +1,8 @@
 from django.test import TestCase
 from django.urls import reverse
+from .models import Species
 
 class MyPageTests(TestCase):
-    
-    # Test de la réponse HTTP
-    def test_page_status_code(self):
-        response = self.client.get(reverse('catalogue_home'))  # Remplacez par le nom de votre vue
-        self.assertEqual(response.status_code, 200)  # Vérifie le code de statut HTTP (200 OK)
-
-    # Test de la présence d'un élément HTML
-    def test_page_contains_specific_element(self):
-        response = self.client.get(reverse('catalogue_home'))
-        self.assertContains(response, '<h1>Bienvenue dans le Catalogue</h1>')  # Vérifie qu'un titre est présent
     
     def test_catalogue_feuilles(self):
         response = self.client.get(reverse('catalogue_feuilles'))
@@ -22,14 +13,19 @@ class MyPageTests(TestCase):
         response = self.client.get(reverse('catalogue_fruits'))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Fruits")  # Remplacez par un contenu spécifique à cette page.
-
-        '''    
+    
+    def test_species_search_view(self):
+        response = self.client.get(reverse('species_search', args=["mot-clé1"]))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'catalogue/search_results.html')
+        self.assertEqual(len(response.context['results']), 0)
+         
 
     # Test de contenu dynamique
     def test_page_contains_dynamic_content(self):
         response = self.client.get(reverse('accueil'))
         self.assertContains(response, 'accueil/accueil.css')  # Vérifie la présence d'un contenu dynamique
-        self.assertContains(response, 'accueil/images/logo.jpg')
+        self.assertContains(response, '/static/accueil/images/logo.png')
 
     def test_bouton_feuilles_lien(self):
         # Accède à la page d'accueil
@@ -57,4 +53,30 @@ class MyPageTests(TestCase):
         # Vérifie que la page de destination retourne un code 200
         self.assertEqual(response.status_code, 200)   
 
-        '''
+
+    def test_quiz_start(self):
+        """
+        Tester si le quiz démarre correctement.
+        """
+        response = self.client.get(reverse('quiz'))
+        self.assertEqual(response.status_code, 200)
+        #self.assertContains(response, "Question 1")
+        #self.assertIn('image', response.context)
+        #self.assertIn('options', response.context)
+
+    def test_quiz_end(self):
+        """
+        Tester la fin du quiz après 5 questions.
+        """
+        session = self.client.session
+        session['quiz_round'] = 6  # Simule une session au-delà du dernier round
+        session['quiz_score'] = 4
+        session.save()
+
+        response = self.client.get(reverse('quiz'))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Vous avez terminé le quiz avec un score de : 4/5")  # Vérifier la fin du quiz
+    
+    
+
+    

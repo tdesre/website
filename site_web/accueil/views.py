@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from django.contrib.auth import login
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
+from django.db.models import Avg
+
 
 def index(request):
     return render(request, 'accueil/index.html')

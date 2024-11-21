@@ -810,11 +810,12 @@ input, select, textarea {
 		cursor: default;
 		list-style: none;
 		padding-left: 0;
+		text-align: center;
 	}
 
 		ul.icons li {
 			display: inline-block;
-			padding: 0 1em 0 0;
+			padding: 0 0.5em 0 0;
 		}
 
 			ul.icons li:last-child {
@@ -822,7 +823,7 @@ input, select, textarea {
 			}
 
 			ul.icons li .icon:before {
-				font-size: 1.5rem;
+				font-size: 1.6rem;
 			}
 
 /* Main */

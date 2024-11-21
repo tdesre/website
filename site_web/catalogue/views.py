@@ -3,10 +3,9 @@ from django.db.models import Q
 from .models import Species
 from django.http import HttpResponse
 from django.template import loader
-from django.shortcuts import render, redirect
 from django.db.models import Avg
 import random
-from django.db.models import Avg
+
 
 
 def catalogue_feuilles(request):

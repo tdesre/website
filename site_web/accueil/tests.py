@@ -14,7 +14,7 @@ class MyPageTests(TestCase):
     # Test de la présence d'un élément HTML
     def test_page_contains_specific_element(self):
         response = self.client.get(reverse('accueil'))
-        self.assertContains(response, '<h1 class="site-name">Catalogue Botanique</h1>')  # Vérifie qu'un titre est présent
+        self.assertContains(response, '<title>Accueil</title>\n')  # Vérifie qu'un titre est présent
         self.assertContains(response, '<h1>Bienvenue sur notre site</h1>')
         
 

@@ -58,8 +58,6 @@ Cette structure garantit une séparation claire entre les données, la logique e
 
 ---
 
----
-
 ## **🛠️ Outils utilisés**
 - *Backend* : [Python](https://www.python.org/doc/), [Django](https://www.djangoproject.com/)
 - *Frontend* : HTML, CSS, JS

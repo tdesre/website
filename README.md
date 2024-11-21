@@ -1,6 +1,6 @@
 # **🌱 Catalogue Botanique**
 
-Un projet académique de développement web visant à créer un catalogue interactif de feuilles et fruits.
+Ceci est un projet de développement d'une application web dont l'objectif est de créer un catalogue de feuilles et de fruits.
 
 ## **📖 Table des matières**
 - [🌟 Introduction](#-introduction)
@@ -19,7 +19,7 @@ Un projet académique de développement web visant à créer un catalogue intera
 Le projet *Catalogue Botanique* a été développé dans le cadre d'un projet académique pour démontrer nos compétences en programmation web.  
 Il permet de :
 - Explorer un large catalogue de feuilles et de fruits.
-- Afficher des informations détaillées sur chaque élément botanique.
+- Afficher une description regroupant des informations sur les éléments du catalogue.
 - Fournir une expérience utilisateur interactive et dynamique.
 
 ---
@@ -27,24 +27,22 @@ Il permet de :
 ## **🔍 MVP et MVT dans ce projet**
 
 ### **MVP (Minimum Viable Product)**
-Le concept de **MVP** repose sur la création rapide d'une version fonctionnelle et minimale d'un produit pour tester ses fonctionnalités essentielles.  
-Dans ce projet, notre MVP inclut :
-1. Une **page d'accueil dynamique** avec des citations changeantes.
-2. Un **catalogue interactif** permettant de naviguer entre les feuilles et fruits.
-3. Une **section "À propos" extensible**, accessible via le footer, pour fournir des informations sur le projet et les contacts.
+Le concept de **MVP** repose sur la création d'une version fonctionnelle et minimale d'un produit pour tester ses fonctionnalités.  
+Pour ce projet, notre MVP comprend :
+1. Une **page d'accueil dynamique** avec des faits intéressants.
+2. Un **catalogue interactif** permettant de naviguer entre les feuilles et fruits de façon ergonomique.
+3. Une **section "À propos" extensible**, accessible via le footer, pour fournir des informations sur les contacts des créateurs du site web.
 
 ### **MVT (Model-View-Template)**
-Le projet suit l'architecture **MVT**, typique de Django :
-- **Model** : Les modèles définissent la structure des données (ex. : `Species` pour les feuilles et fruits).
+Le projet suit également l'architecture **MVT** :
+- **Model** : Les modèles définissent la façon dont sont structurées les données (ex. : `Species` pour les feuilles et fruits).
 - **View** : Les vues gèrent la logique métier (ex. : affichage des pages et gestion des interactions utilisateur).
 - **Template** : Les fichiers HTML définissent la présentation visuelle et utilisent les données fournies par les vues.
-
-Cette structure garantit une séparation claire entre les données, la logique et l'interface utilisateur, rendant le code plus modulaire et maintenable.
 
 ---
 
 ## **✨ Fonctionnalités principales**
-- **Page d'accueil dynamique** : Affichage de citations changeantes toutes les 10 secondes avec une animation fluide.
+- **Page d'accueil dynamique** : Affichage dynamique de citations faits intéressants toutes les 10 secondes.
 
 - **Catalogue interactif** : Navigation dans une liste de feuilles et fruits avec des informations détaillées sur chaque élément. Bandeau d'affichage permettant une navigation fluide entre les différentes pages du site web.
 
@@ -73,11 +71,11 @@ Cette structure garantit une séparation claire entre les données, la logique e
 ## 📚 Cas d'usage  
 ### Cas 1 : Recherche d'une feuille  
 1. L'utilisateur tape un mot-clé dans la barre de recherche.  
-2. L'application affiche les espèces correspondantes.  
+2. L'application affiche les espèces correspondantes à ce mot clé.  
 3. En cliquant sur un résultat, l'utilisateur accède à des détails ainsi qu'une sélection d'images de l'espèce.  
 
 ### Cas 2 : Apprentissage via un quizz  
-1. L'utilisateur lance le quizz interactif.  
+1. L'utilisateur lance le quizz comportant 5 questions.  
 2. Il répond à des questions sur les feuilles et fruits.  
 3. Il reçoit un score et des corrections pour apprendre de manière ludique.  
 

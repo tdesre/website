@@ -193,7 +193,7 @@ button.animated-button:hover {
 .footer-hidden {
     opacity: 0; /* Cachée par défaut */
     transition: opacity 0.5s ease; /* Animation de l’apparition */
-    margin-top: 10%;
+    margin-top: 0%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -226,8 +226,7 @@ button.animated-button:hover {
     position: absolute; /* Permet de déplacer la section indépendamment */
     bottom: 40%; /* Garde un espace entre la section et le bas de la page */
     left: 0.5%; /* Positionne la section à gauche avec un décalage */
-    right: 80%;
-    width: 400px;
+    width: 20%;
     background-color: rgba(0, 0, 0, 0.35); /* Fond légèrement transparent */
     padding: 10px; /* Ajoute un peu d'espace autour du contenu */
     border-radius: 10px; /* Coins arrondis */
@@ -246,7 +245,7 @@ button.animated-button:hover {
     position: absolute; /* Permet de déplacer la section indépendamment */
     bottom: 40%; /* Garde un espace entre la section et le bas de la page */
     right: 0.5%; /* Positionne la section à gauche avec un décalage */
-    width: 450px;
+    width: 22%;
     background-color: rgba(255, 255, 255, 0.2); /* Fo5nd légèrement transparent */
     padding: 10px; /* Ajoute un peu d'espace autour du contenu */
     border-radius: 7px; /* Coins arrondis */

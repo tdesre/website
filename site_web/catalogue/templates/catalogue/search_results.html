@@ -58,6 +58,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/accueil"><i class="fas fa-home fa-2x"></i></a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/catalogue/feuilles"><i class="fas fa-leaf fa-2x"></i></a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/catalogue/fruits"><i class="fas fa-lemon fa-2x"></i></a></li>
                         <li class="nav-item mx-0 mx-lg-1">
                             <a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'quiz' %}"><i class="fas fa-lightbulb fa-2x"></i></a>
@@ -140,10 +141,35 @@
         <!-- Votre contenu de catalogue -->
     </section>
 
-    <!-- Footer inchangé -->
+    <!-- Footer-->
     <footer class="footer text-center">
         <div class="container">
-            <p>Votre footer ici.</p>
+            <div class="row">
+                <!-- Footer Location-->
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase mb-4">Localisation</h4>
+                    <p class="lead mb-0">
+                        Bures-Sur-Yvette
+                        <br />
+                        1 Av. de Normandie
+                    </p>
+                </div>
+                <!-- Footer Social Icons-->
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase mb-4">Contactez-nous</h4>
+                    <p><i class="fas fa-envelope"></i></p>
+                    <p>projet_catalogue_botanique@gmail.com</p>
+                    <p><i class="fas fa-phone"></i></p>
+                    <p>+33 1 23 45 67 89</p>
+                </div>
+                <!-- Footer About Text-->
+                <div class="col-lg-4">
+                    <h4 class="text-uppercase mb-4">Qui sommes-nous ?</h4>
+                    <p class="lead mb-0">
+                        Passionnés de nature, nous partageons la beauté et les secrets des arbres avec vous
+                    </p>
+                </div>
+            </div>
         </div>
     </footer>
 </body>

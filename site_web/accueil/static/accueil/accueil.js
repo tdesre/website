@@ -58,3 +58,63 @@ document.querySelector(".interactive-footer").addEventListener("mouseenter", fun
 document.querySelector(".interactive-footer").addEventListener("mouseleave", function () {
     this.style.height = "50px";
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const carousel = document.querySelector(".carousel");
+    const images = Array.from(carousel.children);
+    const totalImages = images.length;
+
+    const speed = 2; // Vitesse du défilement (en pixels)
+
+    function setInitialPositions() {
+        const screenWidth = window.innerWidth; // Largeur de l'écran
+        const spacing = screenWidth / totalImages; // Espacement entre les images
+
+        // Positionne chaque image uniformément à partir du bord droit de l'écran
+        images.forEach((img, index) => {
+            img.style.position = "absolute"; // Position absolue pour chaque image
+            img.style.left = `${screenWidth + index * spacing}px`; // Décale chaque image de manière uniforme
+        });
+    }
+
+    function animateCarousel() {
+        const screenWidth = window.innerWidth; // Largeur de l'écran
+        const spacing = screenWidth / totalImages; // Espacement calculé
+
+        // Parcourir les images pour déplacer chaque image individuellement
+        images.forEach((img) => {
+            // Récupérer la position actuelle de l'image
+            const currentLeft = parseFloat(img.style.left.replace("px", "")); // position actuelle à gauche
+            const imageWidth = img.offsetWidth; // Largeur de l'image
+        
+            // Si le coin droit de l'image (currentLeft + imageWidth) est hors de l'écran (moins que 0)
+            if (currentLeft + imageWidth <= 0) {
+                // Repositionner l'image immédiatement au bord droit de l'écran
+                img.style.left = `${window.innerWidth}px`;
+            } else {
+                // Déplacer l'image vers la gauche
+                const newLeft = currentLeft - speed;
+                img.style.left = `${newLeft}px`; // Mettre à jour la position
+            }
+        });
+        
+
+        requestAnimationFrame(animateCarousel);
+    }
+
+    // Initialise les positions des images
+    setInitialPositions();
+    requestAnimationFrame(animateCarousel);
+
+    // Repositionne les images si la fenêtre est redimensionnée
+    window.addEventListener("resize", () => {
+        setInitialPositions(); // Recalcule les positions
+    });
+});
+
+
+
+
+
+

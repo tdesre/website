@@ -16,11 +16,11 @@ Un projet académique de développement web visant à créer un catalogue intera
 ---
 
 ## **🌟 Introduction**
-Le projet *Catalogue Botanique* a été développé dans le cadre d'un projet académique pour démontrer nos compétences en programmation web.  
+Le projet *Le Guide végétal* a été développé dans le cadre d'un projet académique pour démontrer nos compétences en programmation web.  
 Il permet de :
+- Fournir une expérience utilisateur interactive et dynamique.
 - Explorer un large catalogue de feuilles et de fruits.
 - Afficher des informations détaillées sur chaque élément botanique.
-- Fournir une expérience utilisateur interactive et dynamique.
 
 ---
 
@@ -29,9 +29,10 @@ Il permet de :
 ### **MVP (Minimum Viable Product)**
 Le concept de **MVP** repose sur la création rapide d'une version fonctionnelle et minimale d'un produit pour tester ses fonctionnalités essentielles.  
 Dans ce projet, notre MVP inclut :
-1. Une **page d'accueil dynamique** avec des citations changeantes.
-2. Un **catalogue interactif** permettant de naviguer entre les feuilles et fruits.
-3. Une **section "À propos" extensible**, accessible via le footer, pour fournir des informations sur le projet et les contacts.
+1. Une **page d'accueil** qui permet d'accéder au catalogue.
+2. Un **catalogue** permettant de naviguer entre les feuilles et fruits.
+3. Une **description détaillée** pour chaque espèce.
+4. Un **moteur de recherche** dans le catalogue.
 
 ### **MVT (Model-View-Template)**
 Le projet suit l'architecture **MVT**, typique de Django :
@@ -81,7 +82,7 @@ Cette structure garantit une séparation claire entre les données, la logique e
 ### Cas 2 : Apprentissage via un quizz  
 1. L'utilisateur lance le quizz interactif.  
 2. Il répond à des questions sur les feuilles et fruits.  
-3. Il reçoit un score et des corrections pour apprendre de manière ludique.  
+3. Il reçoit un score et peut rejouer.
 
 ---
 ## ✅ Tests et Couverture  
@@ -97,7 +98,7 @@ Pour garantir la qualité et la stabilité de notre application, nous avons con�
 - *Amélie BELLAZI*
 - *Hortense CLAUDON*
 - *Tom CONNERY*
-- *Théophile DESRE*
+- *Théophile DESRÉ*
 - *Philippine FROUX*
 - *Ilan TARABULA*
 

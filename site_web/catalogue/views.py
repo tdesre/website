@@ -21,7 +21,7 @@ def catalogue_fruits(request):
 
 # fonction de recherche
 def search_species(keyword):
-    query = Q(keywords__icontains=keyword) | Q(name_leaf__icontains=keyword) | Q(name_fruit__icontains=keyword) # fait la recherche dans les mots clés, le nom de la feuille et le nom du fruit
+    query = Q(keywords__icontains=keyword) | Q(name_leaf__icontains=keyword) | Q(name_fruit__icontains=keyword) | Q(name__icontains=keyword) # fait la recherche dans les mots clés, le nom de la feuille, du fruit et de l'espèce
     results = Species.objects.filter(query)  # utilise .filter pour chercher les espèces qui correspondent à la recherche
     return results
 

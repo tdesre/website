@@ -3,11 +3,11 @@ from django.template import loader
 from django.http import HttpResponse
 from django.forms.models import model_to_dict
 from catalogue.models import Species
-from pathlib import Path  # Utilisation de pathlib pour la gestion des chemins
+from django.views.decorators.csrf import csrf_exempt
+from pathlib import Path  
 from django.conf import settings
 from unicodedata import normalize
-from django.shortcuts import get_object_or_404, render, redirect
-
+import os
 def normalize_name(input_str):
     """Supprime les accents et remplace les espaces par des underscores."""
     # Supprimer les accents
@@ -52,20 +52,49 @@ def description(request, id):
         # Gestion des erreurs de lecture
         species.description = f"Erreur lors de la lecture de la description : {e}"
 
-    # Logs pour diagnostic
-    print("Nom normalisé :", normalized_name)
-    print("Chemin galerie :", gallery_folder)
-    print("Images trouvées :", images_path)
-    print("Chemin description :", description_file)
-    print("Description :", species.description)
-
     # Préparer le contexte pour le template
+
+    if request.user.is_authenticated and (request.user.username in species.user_name.split(",")):
+        favorite = True
+    else:
+        favorite = False
+
     context = {
         **model_to_dict(species),
         'images_path': images_path,
-        'is_red': request.user.is_authenticated,
+        'is_red': favorite,
     }
     return render(request, 'description/description.html', context)
+
+
+
+@csrf_exempt
+def update_favorite(request, id):
+    print("1")
+    if request.method == 'POST':
+        id = int(request.POST.get('id'))
+        # Vérifier que l'URL est bonne
+        if id == 0 :
+            return redirect('/description/'+str(Species.objects.count()))
+        if id > Species.objects.count():
+            return redirect('/description/1')
+    
+        species = get_object_or_404(Species, id=id)
+
+        if request.user.is_authenticated and (request.user.username in species.user_name.split(",")):
+            print('2', species.user_name)
+            species.user_name = species.user_name.replace(request.user.username + ",", "")
+
+            species.save()
+            print(species.user_name)
+        elif request.user.is_authenticated and (request.user.username not in species.user_name.split(",")):
+            print('3')
+            species.user_name = species.user_name + request.user.username + ","
+            species.save()
+        else:
+            print('pas connecté')
+        
+        return redirect('/description/'+str(id))
 
 def error(request, text):
     return HttpResponse("URL incorrecte : entrer un nombre entre 1 et " + str(Species.objects.count()))

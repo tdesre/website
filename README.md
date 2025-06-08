@@ -1,6 +1,7 @@
 # **🌱 Catalogue Botanique**
 
 Un projet académique de développement web visant à créer un catalogue interactif de feuilles et fruits.
+Le site est accessible ici : https://theophiledesre.eu.pythonanywhere.com/
 
 ## **📖 Table des matières**
 - [🌟 Introduction](#-introduction)
@@ -66,11 +67,6 @@ Cette structure garantit une séparation claire entre les données, la logique e
 - *AUTRE* : [Bootstrap](https://getbootstrap.com/) pour une partie des designs
 
 ---
-
-## **⚙️ Installation**
-1. Clonez ce dépôt :  
-   ```bash
-   git clone https://gitlab-cw4.centralesupelec.fr/theophile.desre/coding-weeks-site-web.git
 
 
 ## 📚 Cas d'usage  
